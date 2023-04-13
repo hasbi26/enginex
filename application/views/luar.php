@@ -100,12 +100,9 @@ defined('BASEPATH') or exit('No direct script access allowed');
 								<h5>Product Category</h5>
 							</div>
 							<ul class="sidebar_categories">
-								<li><a href="#">Men</a></li>
-								<li class="active"><a href="#"><span><i class="fa fa-angle-double-right" aria-hidden="true"></i></span>Women</a></li>
+								<li><a href="#">Mobil</a></li>
+								<li class="active"><a href="#"><span><i class="fa fa-angle-double-right" aria-hidden="true"></i></span>Motor</a></li>
 								<li><a href="#">Accessories</a></li>
-								<li><a href="#">New Arrivals</a></li>
-								<li><a href="#">Collection</a></li>
-								<li><a href="#">Shop</a></li>
 							</ul>
 						</div>
 
@@ -586,7 +583,7 @@ defined('BASEPATH') or exit('No direct script access allowed');
 						productBubble +
 						'<div class="product_info">' +
 						'<h6 class="product_name"><a href="welcome/detailProduct/' + product.id + '">' + product.merk + ' ' + product.namaItem + ' ' + product.tahun + '</a></h6>' +
-						'<div class="product_price">Rp. ' + (product.harga / 1000).toFixed(3); + '</div>' +
+						'<div class="product_price">Rp. ' + (product.harga / 1000).toFixed(3) + '</div>' +
 					'</div>' +
 					'</div>' +
 					'<div class="red_button add_to_cart_button"><a href="#">add to cart</a></div>' +
