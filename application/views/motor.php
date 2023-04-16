@@ -58,489 +58,315 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 
 <!-- Modal -->
 <div class="modal fade" id="staticBackdrop" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
-  <div class="modal-dialog  modal-lg">
+  <div class="modal-dialog modal-lg">
     <div class="modal-content">
       <div class="modal-header">
         <h5 class="modal-title" id="staticBackdropLabel">Modal title tambah</h5>
-        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
       </div>
       <div class="modal-body">
-        
-	  <form method="post" id="form" accept-charset="multipart/form-data">
-	
-    <div class="container">
-      <div class="row"> 
-
-    <div class="col-8">
-    <div class="row g-3 my-2">
-  <div class="col">
-    <input type="text" class="form-control" placeholder="namabarang" aria-label="First name" name="namabarang" >
-  </div>
-  <div class="col">
-    <input type="text" class="form-control" placeholder="tahun" aria-label="tahun" name="tahun" >
-  </div>
-</div>
-
-
-<div class="row g-3 my-2">
-  <div class="col">
-    <input type="text" class="form-control" placeholder="harga" aria-label="harga" name="harga">
-  </div>
-  <div class="col">
-    <input type="text" class="form-control" placeholder="merk" aria-label="merk" name="merk">
-  </div>
-</div>
-
-<div class="row g-3 my-2">
-  <div class="col">
-    <!-- <input type="text" class="form-control" placeholder="jenis" aria-label="jenis" name="jenis"> -->
-  <select class="form-select" aria-label="Default select example" name="Model">
-  <option selected>Pilih Model</option>
-  <option value="Bebek">Bebek</option>
-  <option value="Sport">Sport</option>
-  <option value="matic">matic</option>
-
-
-</select>
-
-
-<div class="row g-3 my-2">
-  <div class="col">
-    <input type="text" class="form-control" placeholder="volume_mesin" aria-label="volume_mesin" name="volume_mesin">
-  </div>
-
-</div>
-
-
-<div class="row g-3 my-2">
-
-  <div class="col">
-    <input type="text" class="form-control" placeholder="warna" aria-label="warna" name="warna">
-  </div>
-</div>
-
-
-<div class="row g-3 my-2">
-  <div class="col">
-    <input type="text" class="form-control" placeholder="nopol" aria-label="nopol" name="nopol">
-  </div>
-  <div class="col">
-    <input type="text" class="form-control" placeholder="kilometer" aria-label="kilometer" name="kilometer">
-  </div>
-</div>
-
-
-
-
-
-
-
-<div class="row g-3 my-2">
-
-  <div class="col">
-    <input type="text" class="form-control" placeholder="deskripsi" aria-label="deskripsi" name="deskripsi">
-  </div>
-</div>
-
-
-
-    </div>
-
-  
-    <div class="col-4">
-<div class="row g-3 my-2">
-  <div class="col">
-  <label for="fotodepan" class="form-label">foto depan</label>
-  <input class="form-control form-control-sm" id="fotodepan" name="fotodepan" type="file">
-</div>
-</div>
-
-<div class="row g-3 my-2">
-<div class="col">
-  <label for="fotobelakang" class="form-label">foto belakang</label>
-  <input class="form-control form-control-sm" id="fotobelakang" name="fotobelakang" type="file">
-</div>
-</div>
-
-
-<div class="row g-3 my-2">
-<div class="col">
-  <label for="fotokanan" class="form-label">foto kanan</label>
-  <input class="form-control form-control-sm" id="fotokanan" name="fotokanan" type="file">
-</div>
-</div>
-<div class="row g-3 my-2">
-<div class="col">
-  <label for="fotokiri" class="form-label">foto kiri</label>
-  <input class="form-control form-control-sm" id="fotokiri" name="fotokiri" type="file">
-</div>
-</div>
-
-<div class="row g-3 my-2">
-<div class="col">
-  <label for="fotodalam1" class="form-label">foto Dalam 1</label>
-  <input class="form-control form-control-sm" id="fotodalam1" name="fotodalam1" type="file">
-</div>
-</div>
-<div class="row g-3 my-2">
-<div class="col">
-  <label for="fotodalam2" class="form-label">foto Dalam 2</label>
-  <input class="form-control form-control-sm" id="fotodalam2" name="fotodalam2" type="file">
-</div>
-</div>
-
-<div class="row g-3 my-2">
-<div class="col">
-  <label for="fotomesin1" class="form-label">foto Mesin 1</label>
-  <input class="form-control form-control-sm" id="fotomesin1" name="fotomesin1" type="file">
-</div>
-</div>
-<div class="row g-3 my-2">
-<div class="col">
-  <label for="fotomesin2" class="form-label">foto Mesin 2</label>
-  <input class="form-control form-control-sm" id="fotomesin2" name="fotomesin2" type="file">
-</div>
-</div>
-
-
-
-</div>
-
-    </div>
-    </div>
-
-
-
-
-	</form>
+        <form method="post" id="form" accept-charset="multipart/form-data" name="form">
+          <div class="container">
+            <div class="row">
+              <div class="col-8">
+                <div class="row g-3 my-2">
+                  <div class="col">
+                    <input type="text" class="form-control" placeholder="namabarang" aria-label="First name" name="namabarang">
+                  </div>
+                  <div class="col">
+                    <input type="text" class="form-control" placeholder="tahun" aria-label="tahun" name="tahun">
+                  </div>
+                </div>
+                <div class="row g-3 my-2">
+                  <div class="col">
+                    <input type="text" class="form-control" placeholder="harga" aria-label="harga" name="harga">
+                  </div>
+                  <div class="col">
+                    <input type="text" class="form-control" placeholder="merk" aria-label="merk" name="merk">
+                  </div>
+                </div>
+                <div class="row g-3 my-2">
+                  <div class="col">
+                    <select class="form-select" aria-label="Default select example" name="model">
+                      <option selected>
+                        Pilih Model
+                      </option>
+                      <option value="Bebek">
+                        Bebek
+                      </option>
+                      <option value="Sport">
+                        Sport
+                      </option>
+                      <option value="Matic">
+                        Matic
+                      </option>
+                      <option value="Vespa">
+                        Vespa
+                      </option>
+                      <option value="Roda3">
+                        Roda3
+                      </option>
+                    </select>
+                    <div class="row g-3 my-2">
+                      <div class="col">
+                        <input type="text" class="form-control" placeholder="pajak" aria-label="pajak" name="pajak">
+                      </div>
+                    </div>
+                    <div class="row g-3 my-2">
+                      <div class="col">
+                        <input type="text" class="form-control" placeholder="volume_mesin" aria-label="volume_mesin" name="volume_mesin">
+                      </div>
+                    </div>
+                    <div class="row g-3 my-2">
+                      <div class="col">
+                        <input type="text" class="form-control" placeholder="warna" aria-label="warna" name="warna">
+                      </div>
+                    </div>
+                    <div class="row g-3 my-2">
+                      <div class="col">
+                        <input type="text" class="form-control" placeholder="nopol" aria-label="nopol" name="nopol">
+                      </div>
+                      <div class="col">
+                        <input type="text" class="form-control" placeholder="kilometer" aria-label="kilometer" name="kilometer">
+                      </div>
+                    </div>
+                    <div class="row g-3 my-2">
+                      <div class="col">
+                        <input type="text" class="form-control" placeholder="deskripsi" aria-label="deskripsi" name="deskripsi">
+                      </div>
+                    </div>
+                  </div>
+                  <div class="col-4">
+                    <div class="row g-3 my-2">
+                      <div class="col">
+                        <label for="fotodepan" class="form-label">foto depan</label> <input class="form-control form-control-sm" id="fotodepan" name="fotodepan" type="file">
+                      </div>
+                    </div>
+                    <div class="row g-3 my-2">
+                      <div class="col">
+                        <label for="fotobelakang" class="form-label">foto belakang</label> <input class="form-control form-control-sm" id="fotobelakang" name="fotobelakang" type="file">
+                      </div>
+                    </div>
+                    <div class="row g-3 my-2">
+                      <div class="col">
+                        <label for="fotokanan" class="form-label">foto kanan</label> <input class="form-control form-control-sm" id="fotokanan" name="fotokanan" type="file">
+                      </div>
+                    </div>
+                    <div class="row g-3 my-2">
+                      <div class="col">
+                        <label for="fotokiri" class="form-label">foto kiri</label> <input class="form-control form-control-sm" id="fotokiri" name="fotokiri" type="file">
+                      </div>
+                    </div>
+                    <div class="row g-3 my-2">
+                      <div class="col">
+                        <label for="fotomesin1" class="form-label">foto Lain / Mesin</label> <input class="form-control form-control-sm" id="fotolain" name="fotolain" type="file">
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </form>
       </div>
       <div class="modal-footer">
-        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-        <button type="button" id="tombol_tambah" class="btn btn-primary">Understood</button>
+        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button> <button type="button" id="tombol_tambah" class="btn btn-primary">Understood</button>
       </div>
     </div>
   </div>
 </div>
 
+
+
+<!-- akhir modal tambah -->
 
 <!-- form edit  -->
-
-
-
-<div class="modal fade" id="editModal" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="editModalLabel" aria-hidden="true">
-  <div class="modal-dialog  modal-xl">
+<div class="modal fade" id="editModalMotor" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="editModalMotorLabel" aria-hidden="true">
+  <div class="modal-dialog modal-xl">
     <div class="modal-content">
       <div class="modal-header">
-        <h5 class="modal-title" id="editModalLabel">Modal Edit</h5>
-        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        <h5 class="modal-title" id="editModalMotorLabel">Modal Edit</h5>
       </div>
       <div class="modal-body">
-        
-	  <form method="post" id="formEdit" accept-charset="multipart/form-data">
-	
-    <div class="container">
-      <div class="row"> 
+        <form method="post" id="formEdit" accept-charset="multipart/form-data" name="formEdit">
+          <div class="container">
+            <div class="row">
+              <div class="col-6">
+                <div class="row g-3 my-2">
+                  <div class="col">
+                  <input type="text" class="form-control" placeholder="namabarang" aria-label="First name" name="enamabarang">
+                    <input type="hidden" class="form-control" placeholder="id" aria-label="First name" name="eid">
+                  </div>
+                  <div class="col">
+                    <input type="text" class="form-control" placeholder="tahun" aria-label="tahun" name="etahun">
+                  </div>
+                  <div class="row g-3 my-2">
+                    <div class="col">
+                      <input type="text" class="form-control" placeholder="harga" aria-label="harga" name="eharga">
+                    </div>
+                    <div class="col">
+                      <input type="text" class="form-control" placeholder="merk" aria-label="merk" name="emerk">
+                    </div>
+                  </div>
+                  <div class="row g-3 my-2">
+                    <div class="col">
+                      <select class="form-select" aria-label="Default select example" name="ejenis" id="ejenis">
+                        <option selected>
+                          Pilih Jenis
+                        </option>
+                        <option value="Sedan">
+                          Sedan
+                        </option>
+                        <option value="Hatchback">
+                          Hatchback
+                        </option>
+                        <option value="citycar">
+                          citycar
+                        </option>
+                        <option value="MPV">
+                          MPV
+                        </option>
+                        <option value="SUV">
+                          SUV
+                        </option>
+                        <option value="Convertible">
+                          Convertible
+                        </option>
+                        <option value="Station Wagon">
+                          Station Wagon
+                        </option>
+                        <option value="Pick up">
+                          Pick up
+                        </option>
+                        <option value="Low MPV">
+                          Low MPV
+                        </option>
+                        <option value="Low SUV">
+                          Low SUV
+                        </option>
+                        <option value="Micro Car">
+                          Micro Car
+                        </option>
+                        <option value="Box">
+                          Box
+                        </option>
+                        <option value="Truck">
+                          Truck
+                        </option>
+                      </select>
+                    </div>
+                    <div class="col">
+                      <input type="text" class="form-control" placeholder="model" aria-label="model" name="emodel">
+                    </div>
+                  </div>
+                  <div class="row g-3 my-2">
+                    <div class="col">
+                      <input type="text" class="form-control" placeholder="volume_mesin" aria-label="volume_mesin" name="evolume_mesin">
+                    </div>
+                    <div class="col">
+                      <select class="form-select" aria-label="Default select example" name="ebahanbakar" id="ebahanbakar">
+                        <option selected>
+                          Pilih Bahan Bakar
+                        </option>
+                        <option value="Bensin">
+                          Bensin
+                        </option>
+                        <option value="Solar">
+                          Solar
+                        </option>
+                        <option value="Listrik">
+                          Listrik
+                        </option>
+                      </select>
+                    </div>
+                  </div>
+                  <div class="row g-3 my-2">
+                    <div class="col">
+                      <select class="form-select" aria-label="Default select example" name="etransmisi" id="etransmisi">
+                        <option selected>
+                          Pilih Transmisi
+                        </option>
+                        <option value="Manual Transmision">
+                          Manual Transmision
+                        </option>
+                        <option value="Automatic Transmision">
+                          Automatic Transmision
+                        </option>
+                        <option value="Automatic CVT">
+                          Automatic CVT
+                        </option>
+                        <option value="AMT">
+                          AMT
+                        </option>
+                        <option value="DCT">
+                          DCT
+                        </option>
+                      </select>
+                    </div>
+                    <div class="col">
+                      <input type="text" class="form-control" placeholder="warna" aria-label="warna" name="ewarna">
+                    </div>
+                  </div>
+                  <div class="row g-3 my-2">
+                    <div class="col">
+                      <input type="text" class="form-control" placeholder="nopol" aria-label="nopol" name="enopol">
+                    </div>
+                    <div class="col">
+                      <input type="text" class="form-control" placeholder="kilometer" aria-label="kilometer" name="ekilometer">
+                    </div>
+                  </div>
 
-    <div class="col-6">
-    <div class="row g-3 my-2">
-  <div class="col">
-    <input type="text" class="form-control" placeholder="namabarang" aria-label="First name" name="enamabarang" >
-  </div>
-  <div class="col">
-    <input type="text" class="form-control" placeholder="tahun" aria-label="tahun" name="etahun" >
-  </div>
-</div>
-
-
-<div class="row g-3 my-2">
-  <div class="col">
-    <input type="text" class="form-control" placeholder="harga" aria-label="harga" name="eharga">
-  </div>
-  <div class="col">
-    <input type="text" class="form-control" placeholder="merk" aria-label="merk" name="emerk">
-  </div>
-</div>
-
-<div class="row g-3 my-2">
-  <div class="col">
-    <!-- <input type="text" class="form-control" placeholder="jenis" aria-label="jenis" name="jenis"> -->
-  <select class="form-select" aria-label="Default select example" name="ejenis" id="ejenis">
-  <option selected>Pilih Jenis</option>
-  <option value="Sedan">Sedan</option>
-  <option value="Hatchback">Hatchback</option>
-  <option value="citycar">citycar</option>
-  <option value="MPV">MPV</option>
-  <option value="SUV">SUV</option>
-  <option value="Convertible">Convertible</option>
-  <option value="Station Wagon">Station Wagon</option>
-  <option value="Pick up">Pick up</option>
-  <option value="Low MPV">Low MPV</option>
-  <option value="Low SUV">Low SUV</option>
-  <option value="Micro Car">Micro Car</option>
-  <option value="Box">Box</option>
-  <option value="Truck">Truck</option>
-
-</select>
-  </div>
-  <div class="col">
-    <input type="text" class="form-control" placeholder="model" aria-label="model" name="emodel">
-  </div>
-</div>
-
-<div class="row g-3 my-2">
-  <div class="col">
-    <input type="text" class="form-control" placeholder="volume_mesin" aria-label="volume_mesin" name="evolume_mesin">
-  </div>
-  <div class="col">
-    <!-- <input type="text" class="form-control" placeholder="bahanbakar" aria-label="bahanbakar" name="bahanbakar"> -->
-    <select class="form-select" aria-label="Default select example" name="ebahanbakar" id="ebahanbakar">
-  <option selected>Pilih Bahan Bakar</option>
-  <option value="Bensin">Bensin</option>
-  <option value="Solar">Solar</option>
-  <option value="Listrik">Listrik</option>
-</select>
-  </div>
-</div>
-
-
-<div class="row g-3 my-2">
-  <div class="col">
-    <!-- <input type="text" class="form-control" placeholder="transmisi" aria-label="transmisi" name="transmisi"> -->
-    <select class="form-select" aria-label="Default select example" name="etransmisi" id="etransmisi">
-  <option selected>Pilih Transmisi</option>
-  <option value="Manual Transmision">Manual Transmision</option>
-  <option value="Automatic Transmision">Automatic Transmision</option>
-  <option value="Automatic CVT">Automatic CVT</option>
-  <option value="AMT">AMT</option>
-  <option value="DCT">DCT</option>
-</select>
-
-  </div>
-  <div class="col">
-    <input type="text" class="form-control" placeholder="warna" aria-label="warna" name="ewarna">
-  </div>
-</div>
-
-
-<div class="row g-3 my-2">
-  <div class="col">
-    <input type="text" class="form-control" placeholder="nopol" aria-label="nopol" name="enopol">
-  </div>
-  <div class="col">
-    <input type="text" class="form-control" placeholder="kilometer" aria-label="kilometer" name="ekilometer">
-  </div>
-</div>
-
-
-<div class="row g-3 my-2">
-  <div class="col">
-    <!-- <input type="text" class="form-control" placeholder="ac" aria-label="ac" name="ac"> -->
-    <select class="form-select" aria-label="Default select example" name="eac" id="eac">
-  <option selected>Pilih Ac</option>
-  <option value="Ada">Ada</option>
-  <option value="Tidak Ada">Tidak Ada</option>
-  <option value="Rusak">Rusak</option>
-</select>
-  </div>
-  <div class="col">
-    <!-- <input type="text" class="form-control" placeholder="powersteering" aria-label="powersteering" name="powersteering"> -->
-    <select class="form-select" aria-label="Default select example" name="epowersteering" id="epowersteering">
-  <option selected>Pilih Power Steering</option>
-  <option value="Ada">Ada</option>
-  <option value="Tidak Ada">Tidak Ada</option>
-  <option value="Rusak">Rusak</option>
-</select>
-  </div>
-</div>
-
-
-<div class="row g-3 my-2">
-  <div class="col">
-    <!-- <input type="text" class="form-control" placeholder="powerwindow" aria-label="powerwindow" name="powerwindow"> -->
-    <select class="form-select" aria-label="Default select example" name="epowerwindow" id="epowerwindow">
-  <option selected>Pilih Power Window</option>
-  <option value="Ada">Ada</option>
-  <option value="Tidak Ada">Tidak Ada</option>
-  <option value="Rusak">Rusak</option>
-</select>
-  </div>
-  <div class="col">
-    <!-- <input type="text" class="form-control" placeholder="centrallock" aria-label="centrallock" name="centrallock"> -->
-    <select class="form-select" aria-label="Default select example" name="ecentrallock" id="ecentrallock">
-  <option selected>Pilih Central lock</option>
-  <option value="Ada">Ada</option>
-  <option value="Tidak Ada">Tidak Ada</option>
-  <option value="Rusak">Rusak</option>
-</select>
-  </div>
-</div>
-
-
-<div class="row g-3 my-2">
-  <div class="col">
-    <!-- <input type="text" class="form-control" placeholder="alarm" aria-label="alarm" name="alarm"> -->
-    <select class="form-select" aria-label="Default select example" name="ealarm" id="ealarm">
-  <option selected>Pilih Alarm</option>
-  <option value="Ada">Ada</option>
-  <option value="Tidak Ada">Tidak Ada</option>
-  <option value="Rusak">Rusak</option>
-</select>
-  </div>
-  <div class="col">
-    <input type="text" class="form-control" placeholder="kondisi" aria-label="kondisi" name="ekondisi">
-  </div>
-</div>
-
-
-<div class="row g-3 my-2">
-  <div class="col">
-    <input type="text" class="form-control" placeholder="status" aria-label="status" name="estatus">
-  </div>
-  <div class="col">
-    <input type="text" class="form-control" placeholder="deskripsi" aria-label="deskripsi" name="edeskripsi">
-  </div>
-</div>
-
-
-
-    </div>
-
-    <div class="col-3">
-<div class="row g-3 my-2">
-  <div class="col">
-  <label for="fotodepan" class="form-label">foto depan</label>
-  <input class="form-control form-control-sm" id="efotodepan" name="efotodepan" type="file">
-</div>
-</div>
-
-<div class="row g-3 my-2">
-<div class="col">
-  <label for="fotobelakang" class="form-label">foto belakang</label>
-  <input class="form-control form-control-sm" id="efotobelakang" name="efotobelakang" type="file">
-</div>
-</div>
-
-
-<div class="row g-3 my-2">
-<div class="col">
-  <label for="fotokanan" class="form-label">foto kanan</label>
-  <input class="form-control form-control-sm" id="efotokanan" name="efotokanan" type="file">
-</div>
-</div>
-<div class="row g-3 my-2">
-<div class="col">
-  <label for="fotokiri" class="form-label">foto kiri</label>
-  <input class="form-control form-control-sm" id="efotokiri" name="efotokiri" type="file">
-</div>
-</div>
-
-<div class="row g-3 my-2">
-<div class="col">
-  <label for="fotodalam1" class="form-label">foto Dalam 1</label>
-  <input class="form-control form-control-sm" id="efotodalam1" name="efotodalam1" type="file">
-</div>
-</div>
-<div class="row g-3 my-2">
-<div class="col">
-  <label for="fotodalam2" class="form-label">foto Dalam 2</label>
-  <input class="form-control form-control-sm" id="efotodalam2" name="efotodalam2" type="file">
-</div>
-</div>
-
-<div class="row g-3 my-2">
-<div class="col">
-  <label for="fotomesin1" class="form-label">foto Mesin 1</label>
-  <input class="form-control form-control-sm" id="efotomesin1" name="efotomesin1" type="file">
-</div>
-</div>
-<div class="row g-3 my-2">
-<div class="col">
-  <label for="fotomesin2" class="form-label">foto Mesin 2</label>
-  <input class="form-control form-control-sm" id="efotomesin2" name="efotomesin2" type="file">
-</div>
-</div>
-
-
-
-</div>
-
-<div class="col-3">
-
-
-<table class="table table-bordered" id="editTable">
-  <!-- <tr>
-    <td>
-      <img src="https://picsum.photos/200" width="80" height="80">
-      <br> Caption 1
-    </td>
-    <td>
-      <img src="https://picsum.photos/200" width="80" height="80">
-      <br> Caption 2
-    </td>
-  </tr>
-  <tr>
-    <td>
-      <img src="https://picsum.photos/200" width="80" height="80">
-      <br> Caption 3
-    </td>
-    <td>
-      <img src="https://picsum.photos/200" width="80" height="80">
-      <br> Caption 4
-    </td>
-  </tr>
-  <tr>
-    <td>
-      <img src="https://picsum.photos/200" width="80" height="80">
-      <br> Caption 5
-    </td>
-    <td>
-      <img src="https://picsum.photos/200" width="80" height="80">
-      <br> Caption 6
-    </td>
-  </tr>
-  <tr>
-    <td>
-      <img src="https://picsum.photos/200" width="80" height="80">
-      <br> Caption 7
-    </td>
-    <td>
-      <img src="https://picsum.photos/200" width="80" height="80">
-      <br> Caption 8
-    </td>
-  </tr> -->
-</table>
-
-
-
-
-</div>
-
-
-    </div>
-
-
-
-
-
-    </div>
-
-
-
-
-
-
-	</form>
+                  <div class="row g-3 my-2">
+                    <div class="col">
+                      <input type="text" class="form-control" placeholder="deskripsi" aria-label="deskripsi" name="edeskripsi">
+                    </div>
+                  </div>
+                </div>
+                <div class="col-3">
+                  <div class="row g-3 my-2">
+                    <div class="col">
+                      <label for="fotodepan" class="form-label">foto depan</label> <input class="form-control form-control-sm" id="efotodepan" name="efotodepan" type="file">
+                    </div>
+                  </div>
+                  <div class="row g-3 my-2">
+                    <div class="col">
+                      <label for="fotobelakang" class="form-label">foto belakang</label> <input class="form-control form-control-sm" id="efotobelakang" name="efotobelakang" type="file">
+                    </div>
+                  </div>
+                  <div class="row g-3 my-2">
+                    <div class="col">
+                      <label for="fotokanan" class="form-label">foto kanan</label> <input class="form-control form-control-sm" id="efotokanan" name="efotokanan" type="file">
+                    </div>
+                  </div>
+                  <div class="row g-3 my-2">
+                    <div class="col">
+                      <label for="fotokiri" class="form-label">foto kiri</label> <input class="form-control form-control-sm" id="efotokiri" name="efotokiri" type="file">
+                    </div>
+                  </div>
+                  <div class="row g-3 my-2">
+                    <div class="col">
+                      <label for="fotomesin1" class="form-label">foto Mesin 1</label> <input class="form-control form-control-sm" id="efotomesin1" name="efotomesin1" type="file">
+                    </div>
+                  </div>
+                  <div class="row g-3 my-2">
+                    <div class="col">
+                      <label for="fotomesin2" class="form-label">foto Mesin 2</label> <input class="form-control form-control-sm" id="efotomesin2" name="efotomesin2" type="file">
+                    </div>
+                  </div>
+                </div>
+                <div class="col-3">
+                  <table class="table table-bordered" id="editTable"></table>
+                </div>
+              </div>
+            </div>
+          </div>
+        </form>
       </div>
       <div class="modal-footer">
-        <button type="button" class="btn btn-secondary"  data-bs-dismiss="modal" >Close</button>
-        <button type="button" id="tombol_tambah" class="btn btn-primary">Understood</button>
+        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button> <button type="button" id="tombol_edit" class="btn btn-primary">Understood</button>
       </div>
     </div>
   </div>
 </div>
-
-
-
 
 
 
@@ -558,6 +384,8 @@ defined('BASEPATH') OR exit('No direct script access allowed');
         tampil_data_barang();   //pemanggilan fungsi tampil barang.
          
         $('#mydata').dataTable();
+
+
 
           
         //fungsi tampil barang
@@ -579,7 +407,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
             contentType: false,
             enctype: 'multipart/form-data',
             type    : 'POST',
-            url     : "AddItemMotor/create",
+            url     : '<?= base_url()?>'+ "AddItemMotor/create",
             data    : finalForm,
             cache   : false,
             success : function(data){
@@ -590,21 +418,53 @@ defined('BASEPATH') OR exit('No direct script access allowed');
     });
 
 
+    $("#tombol_edit").click(function(){
+    
+      var form_data = $('#formEdit').serializeArray();
+    
+      var finalForm = new FormData(document.getElementById("formEdit"));
+
+    // console.log("datafrom", form_data)
+
+for (var pair of finalForm.entries()) {
+    console.log(pair[0]+ ', ' + pair[1]); 
+}
+    
+      console.log("final", finalForm)
+
+
+
+    $.ajax({
+      url: '<?php echo base_url('Motor/update'); ?>',
+      method: 'post',
+      data: finalForm,
+      contentType: false,
+      processData: false,
+      success: function(data) {
+        // Do something with the response from the server
+      },
+      error: function(jqXHR, textStatus, errorThrown) {
+        console.log(textStatus, errorThrown);
+      }
+    });
+
+});
+
     function closeModal(){
       console.log("edit modal close")
-      $('#editModal').modal('toggle');
+      // $('#editModalMotor').modal('toggle');
       
       $('#editTable').html("");
       
     }
 
-//     $('#editModal').on('hidden.bs.modal', function () {
+//     $('#editModalMotor').on('hidden.bs.modal', function () {
 //   // do something…
 
 //   console.log("testing")
 // })
 
-$('#editModal').on("hide.bs.modal", function() {
+$('#editModalMotor').on("hide.bs.modal", function() {
 	// alert("clesn up!")
   $('#editTable').html("");
 
@@ -627,7 +487,8 @@ $('#editModal').on("hide.bs.modal", function() {
                             '<td>'+data.Item[i].namaItem+'</td>'+
                             '<td>'+data.Item[i].tahun+'</td>'+
                             '<td>'+data.Item[i].harga+'</td>'+
-                            '<td><button type="button" class="btn btn-warning" onclick="detail('+data.Item[i].id+')">Edit</button> <button type="button" class="btn btn-danger" onclick="del('+data.Item[i].id+')">Delete</button> </td>'+
+                            // '<td><button type="button" class="btn btn-warning" onclick="detail('+data.Item[i].id_motor+')">Edit</button> <button type="button" class="btn btn-danger" onclick="del('+data.Item[i].id_motor+','+data.Item[i].nopol+')">Delete</button> </td>'+
+                            '<td><button type="button" class="btn btn-warning" onclick="detail('+data.Item[i].id_motor+')">Edit</button> <button type="button" class="btn btn-danger" onclick="del(`'+data.Item[i].id_motor+'`,`'+data.Item[i].nopol+'`)">Delete</button> </td>'+
                             '</tr>';
                 }
                 $('#show_data').html(html);
@@ -635,22 +496,21 @@ $('#editModal').on("hide.bs.modal", function() {
         });
     }
 
-    function del(id){
+    function del(id, nopol){
+
+
+
+
     $.ajax({
-    url: 'DeleteItem/delete',
-    data: {id: id},
+    url   :  '<?php echo base_url();?>'+'DeleteItem/deleteMotor',
+    // url: 'DeleteItem/deleteMotor',
+    data: {id: id, nopol : nopol},
     type: 'POST',
     dataType: 'json',
     success: function(response) {
       location.reload();
       tampil_data_barang();
-        // if (response == "success") {
-        //     alert(response);
-        //     // reload halaman
-        //     location.reload();
-        // } else {
-        //     alert(response);
-        // }
+        
     }
     // error: function() {
     //         alert('Terjadi kesalahan saat menghapus data mobil');
@@ -662,7 +522,7 @@ $('#editModal').on("hide.bs.modal", function() {
         console.log("detail", id) 
 
         $.ajax({
-                url:'GetItem/getDetail',
+                url   :  '<?php echo base_url();?>'+'GetItemMotor/getDetail',
                 method: 'post',
                 data: {id: id},
                 dataType: 'json',
@@ -670,29 +530,27 @@ $('#editModal').on("hide.bs.modal", function() {
 
                   console.log("Data", response)
 
-                  $('#editModal').modal('toggle');
+                  $('#editModalMotor').modal('toggle');
 
+                  // $('#editModalMotor').modal('show')
+                  
+
+                  $("input[name='eid']").val(response[0].id_motor);
                   $("input[name='enamabarang']").val(response[0].namaItem);
                   $("input[name='etahun']").val(response[0].tahun);
                   $("input[name='eharga']").val(response[0].harga);
-                  $("input[name='emerk']").val(response[0].merk);
-                  $("#ejenis").val(response[0].jenis).change();
+                  $("input[name='emerk']").val(response[0].Merk);
+                  // $("#ejenis").val(response[0].jenis).change();
                   $("input[name='emodel']").val(response[0].model);
                   $("input[name='evolume_mesin']").val(response[0].volume_mesin);
-                  $("#ebahanbakar").val(response[0].bahanbakar).change();
-                  $("#etransmisi").val(response[0].transmisi).change();
+                  // $("#ebahanbakar").val(response[0].bahanbakar).change();
+                  // $("#etransmisi").val(response[0].transmisi).change();
                   
                   $("input[name='ewarna']").val(response[0].warna);
                   $("input[name='enopol']").val(response[0].nopol);
                   $("input[name='ekilometer']").val(response[0].kilometer);
-                  $("#eac").val(response[0].ac).change();
-                  $("#epowersteering").val(response[0].powersteering).change();
-                  $("#epowerwindow").val(response[0].powerwindow).change();
-                  $("#ecentrallock").val(response[0].centrallock).change();
-                  $("#ealarm").val(response[0].alarm).change();
-                  
-                  $("input[name='ekondisi']").val(response[0].kondisi);
-                  $("input[name='estatus']").val(response[0].status);
+                  // $("#eac").val(response[0].ac).change();
+ 
                   $("input[name='edeskripsi']").val(response[0].deskripsi);
                   // ealarm
 
@@ -708,7 +566,7 @@ $('#editModal').on("hide.bs.modal", function() {
 
                           var img1 = document.createElement("img");
 
-                          img1.src = "./assets/images/"+response[0].fotodepan;
+                          img1.src = '<?php echo base_url();?>'+"/assets/images/Motor/"+response[0].fotodepan;
                           img1.width = 80;
                           img1.height = 80;
                           cell1.appendChild(img1);
@@ -721,7 +579,7 @@ $('#editModal').on("hide.bs.modal", function() {
 
 
                           var img2 = document.createElement("img");
-                          img2.src = "./assets/images/"+response[0].fotobelakang;
+                          img2.src = '<?php echo base_url();?>'+"/assets/images/Motor/"+response[0].fotobelakang;
                           img2.width = 80;
                           img2.height = 80;
                           cell2.appendChild(img2);
@@ -737,7 +595,7 @@ $('#editModal').on("hide.bs.modal", function() {
                           var cell4 = row2.insertCell();
 
                           var img3 = document.createElement("img");
-                          img3.src = "./assets/images/"+response[0].fotokiri;
+                          img3.src = '<?php echo base_url();?>'+"/assets/images/Motor/"+response[0].fotokiri;
                           img3.width = 80;
                           img3.height = 80;
                           cell3.appendChild(img3);
@@ -748,7 +606,7 @@ $('#editModal').on("hide.bs.modal", function() {
                           cell3.appendChild(caption3);
 
                           var img4 = document.createElement("img");
-                          img4.src = "./assets/images/"+response[0].fotokanan;
+                          img4.src = '<?php echo base_url();?>'+"/assets/images/Motor/"+response[0].fotokanan;
                           img4.width = 80;
                           img4.height = 80;
                           cell4.appendChild(img4);
@@ -762,65 +620,30 @@ $('#editModal').on("hide.bs.modal", function() {
                           var row3 = table.insertRow();
 
                           var cell5 = row3.insertCell();
-                          var cell6 = row3.insertCell();
 
                           var img5 = document.createElement("img");
-                          img5.src = "./assets/images/" + response[0].fotodalam1;
+                          img5.src = '<?php echo base_url();?>'+"/assets/images/Motor/" + response[0].fotolain;
                           img5.width = 80;
                           img5.height = 80;
                           cell5.appendChild(img5);
 
                           var caption5 = document.createElement("p");
-                          var captionText5 = document.createTextNode(response[0].fotodalam1);
+                          var captionText5 = document.createTextNode(response[0].fotolain);
                           caption5.appendChild(captionText5);
                           cell5.appendChild(caption5);
 
-                          var img6 = document.createElement("img");
-                          img6.src = "./assets/images/" + response[0].fotodalam2;
-                          img6.width = 80;
-                          img6.height = 80;
-                          cell6.appendChild(img6);
 
-                          var caption6 = document.createElement("p");
-                          var captionText6 = document.createTextNode(response[0].fotodalam2);
-                          caption6.appendChild(captionText6);
-                          cell6.appendChild(caption6);
 
-                          var row4 = table.insertRow();
+  
 
-                          var cell7 = row4.insertCell();
-                          var cell8 = row4.insertCell();
 
-                          var img7 = document.createElement("img");
-                          img7.src = "./assets/images/" + response[0].fotomesin1;
-                          img7.width = 80;
-                          img7.height = 80;
-                          cell7.appendChild(img7);
-
-                          var caption7 = document.createElement("p");
-                          var captionText7 = document.createTextNode(response[0].fotomesin1);
-                          caption7.appendChild(captionText7);
-                          cell7.appendChild(caption7);
-
-                          var img8 = document.createElement("img");
-                          img8.src = "./assets/images/" + response[0].fotomesin2;
-                          img8.width = 80;
-                          img8.height = 80;
-                          cell8.appendChild(img8);
-
-                          var caption8 = document.createElement("p");
-                          // $("p:first").addClass("h6");
-                          var captionText8 = document.createTextNode(response[0].fotomesin2);
-                          caption8.appendChild(captionText8);
-                          cell8.appendChild(caption8);
-
-                        
-
-                // }
+          
               }
 
       });
     }
+
+
 
 
 

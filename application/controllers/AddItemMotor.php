@@ -1,7 +1,7 @@
 <?php
 defined('BASEPATH') OR exit('No direct script access allowed');
 
-class AddItem extends CI_Controller {
+class AddItemMotor extends CI_Controller {
     public function __construct(){
          parent::__construct();
 
@@ -18,7 +18,7 @@ class AddItem extends CI_Controller {
         
         
         if (!empty($_FILES[$field_name]['name'])) {
-            $config['upload_path'] = './assets/images';
+            $config['upload_path'] = './assets/images/Motor';
             $config['allowed_types'] = 'jpg|png';
             $config['max_size'] = 2048000;
             $config['file_name'] = $name;
@@ -37,7 +37,7 @@ class AddItem extends CI_Controller {
             } else {
                 $old_foto = $this->Motor_model->get_foto_by_id($id, $field_name);
                 if (!empty($old_foto)) {
-                    unlink('./assets/images' . $old_foto);
+                    unlink('./assets/images/Motor' . $old_foto);
                     var_dump("keSini");
                 }
                 if (!$this->upload->do_upload($field_name)) {
@@ -74,7 +74,7 @@ class AddItem extends CI_Controller {
 
         
 
-        $config['upload_path']="./assets/images";
+        $config['upload_path']="./assets/images/Motor";
         $config['allowed_types']='jpg|png';
 
         $config['overwrite'] = TRUE;
@@ -132,81 +132,56 @@ class AddItem extends CI_Controller {
     }
 
 
-
-
-
-
-
-
-
-
-
-
     public function create(){
     // get data from ajax formdata
 
   $namaItem = $this->input->post('namabarang');
   $tahun = $this->input->post('tahun');
+  $harga = $this->input->post('harga');
   $merk = $this->input->post('merk');
-  $jenis = $this->input->post('jenis');
-  $volume_mesin = $this->input->post('volume_mesin');
   $model = $this->input->post('model');
-  $bahanbakar = $this->input->post('bahanbakar');
-  $transmisi = $this->input->post('transmisi');
+  $pajak = $this->input->post('pajak');
+  $volume_mesin = $this->input->post('volume_mesin');
   $warna = $this->input->post('warna');
   $nopol = $this->input->post('nopol');
   $kilometer = $this->input->post('kilometer');
-  $ac = $this->input->post('ac');
-  $powersteering = $this->input->post('powersteering');
-  $powerwindow = $this->input->post('powerwindow');
-  $centrallock = $this->input->post('centrallock');
-  $alarm = $this->input->post('alarm');
-  $kondisi = $this->input->post('kondisi');
-  $status = $this->input->post('status');
-  $harga = $this->input->post('harga');
+
   $deskripsi = $this->input->post('deskripsi');
 
-    // handle image upload
-    $fotobelakang = $this->upload_image('fotobelakang', $nopol);
-    $fotodalam1 = $this->upload_image('fotodalam1', $nopol);
-    $fotodalam2 = $this->upload_image('fotodalam2', $nopol);
-    $fotodepan = $this->upload_image('fotodepan', $nopol);
-    $fotokanan = $this->upload_image('fotokanan', $nopol);
-    $fotokiri = $this->upload_image('fotokiri', $nopol);
-    $fotomesin1 = $this->upload_image('fotomesin1', $nopol);
-    $fotomesin2 = $this->upload_image('fotomesin2', $nopol);
+  $path = "./assets/images/Motor/".$nopol;
 
+  
+
+  if(!is_dir($path)) //create the folder if it's not exists
+  {
+    mkdir($path,0755,TRUE);
+  }
+
+    // handle image upload
+    $fotodepan = $this->upload_image('fotodepan', $nopol, $path);
+    $fotobelakang = $this->upload_image('fotobelakang', $nopol, $path);
+    $fotokanan = $this->upload_image('fotokanan', $nopol, $path);
+    $fotokiri = $this->upload_image('fotokiri', $nopol,$path);
+    $fotolain = $this->upload_image('fotolain', $nopol,$path);
     // save data to database
     $data = array(
         'namaItem'=>$namaItem,
         'tahun'=>$tahun,
         'harga'=>$harga,
         'merk'=>$merk,
-        'jenis'=>$jenis,
+        'pajak'=>$pajak,
         'volume_mesin'=>$volume_mesin,
         'model'=>$model,
-        'bahanbakar'=>$bahanbakar,
-        'transmisi'=>$transmisi,
         'warna'=>$warna,
         'nopol'=>$nopol,
         'kilometer'=>$kilometer,
-        'ac'=>$ac,
-        'powersteering'=>$powersteering,
-        'powerwindow'=>$powerwindow,
-        'centrallock'=>$centrallock,
-        'alarm'=>$alarm,
-        'kondisi'=>$kondisi,
-        'status'=>$status,
         'harga' => $harga,
         'deskripsi' => $deskripsi,
         'fotobelakang' => $fotobelakang,
-        'fotodalam1' => $fotodalam1,
-        'fotodalam2' => $fotodalam2,
         'fotodepan' => $fotodepan,
         'fotokanan' => $fotokanan,
         'fotokiri' => $fotokiri,
-        'fotomesin1' => $fotomesin1,
-        'fotomesin2' => $fotomesin2
+        'fotolain' => $fotolain,
     );
     $this->db->insert('t_Motor', $data);
 
@@ -214,14 +189,14 @@ class AddItem extends CI_Controller {
     echo json_encode(array('status' => 'success', 'message' => 'Data berhasil disimpan'));
 }
 
-private function upload_image($field_name, $nopol)
+private function upload_image($field_name, $nopol, $path)
 {
     if (!empty($_FILES[$field_name]['name'])) {
-        $config['upload_path'] = './assets/images';
+        $config['upload_path'] = $path;
         $config['allowed_types'] = 'gif|jpg|png';
         $config['max_size'] = 2048;
         // $config['file_name'] = $field_name."_".time()."_".rand(1000,9999);
-        $config['file_name'] = $nopol."_".rand(100,200);
+        $config['file_name'] = $field_name;
         
         $this->load->library('upload', $config);
         

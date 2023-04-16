@@ -16,7 +16,7 @@ class Motor_model extends CI_Model {
  
                // Select record
                $this->db->select('*');
-               $this->db->where('id', $postData['id']);
+               $this->db->where('id_motor', $postData['id']);
                $records = $this->db->get('t_motor');
                $response = $records->result_array();
 
@@ -31,15 +31,11 @@ class Motor_model extends CI_Model {
      function getItemByid($postData=array()){
  
           $response = array();
-
-          
-
- 
           if(isset($postData) ){
  
                // Select record
                $this->db->select('*');
-               $this->db->where('id', $postData);
+               $this->db->where('id_motor', $postData);
                $records = $this->db->get('t_motor');
                $response = $records->result_array();
 
@@ -54,13 +50,13 @@ class Motor_model extends CI_Model {
 
      public function get_foto_by_id($id)
      {
-         $query = $this->db->get_where('t_motor', array('id' => $id));
+         $query = $this->db->get_where('t_motor', array('id_motor' => $id));
 
          return $query->row();
      }
 
      public function delete($id) {
-          $this->db->where('id', $id);
+          $this->db->where('id_motor', $id);
           $this->db->delete('t_motor');
           return $this->db->affected_rows() > 0;
       }
