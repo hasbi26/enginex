@@ -1,10 +1,10 @@
 <?php if ( ! defined('BASEPATH')) exit('No direct script access allowed');
 
-class Mobil_model extends CI_Model {
+class Aksesoris_model extends CI_Model {
      function getItem(){
 
           $this->db->select('*');
-          $records = $this->db->get('t_mobil');
+          $records = $this->db->get('t_aksesoris');
           $Item = $records->result_array();
           return $Item;
      }
@@ -17,7 +17,7 @@ class Mobil_model extends CI_Model {
                // Select record
                $this->db->select('*');
                $this->db->where('id', $postData['id']);
-               $records = $this->db->get('t_mobil');
+               $records = $this->db->get('t_aksesoris');
                $response = $records->result_array();
           }
 
@@ -32,8 +32,10 @@ class Mobil_model extends CI_Model {
                // Select record
                $this->db->select('*');
                $this->db->where('id', $postData);
-               $records = $this->db->get('t_mobil');
+               $records = $this->db->get('t_aksesoris');
                $response = $records->result_array();
+
+
  
           }
 
@@ -42,29 +44,16 @@ class Mobil_model extends CI_Model {
      }
 
 
-     function GetItemSorting($kat, $sort){
-          $response = array();
-
-          // Select record
-          $this->db->select('*');
-          $this->db->order_by($kat, $sort); // Menggunakan nilai $asc untuk menentukan arah pengurutan
-          $records = $this->db->get('t_mobil');
-          $response = $records->result_array();
-      
-          return $response;
-     }
-
-
      public function get_foto_by_id($id)
      {
-         $query = $this->db->get_where('t_mobil', array('id' => $id));
+         $query = $this->db->get_where('t_aksesoris', array('id' => $id));
 
          return $query->row();
      }
 
      public function delete($id) {
           $this->db->where('id', $id);
-          $this->db->delete('t_mobil');
+          $this->db->delete('t_aksesoris');
           return $this->db->affected_rows() > 0;
       }
       

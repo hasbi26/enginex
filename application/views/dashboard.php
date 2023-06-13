@@ -46,6 +46,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 
 <a href="<?= site_url('auth/logout') ?>">Logout</a>
 <a href="<?= site_url('Motor/Index') ?>">motor</a>
+<a href="<?= site_url('aksesoris') ?>">Aksesoris</a>
 
 
 
@@ -360,14 +361,17 @@ defined('BASEPATH') OR exit('No direct script access allowed');
       </div>
       <div class="modal-body">
         
-	  <form method="post" id="formEdit" accept-charset="multipart/form-data">
-	
+	  <!-- <form method="post" id="formEdit" accept-charset="multipart/form-data"> -->
+    <?= form_open_multipart(base_url('Dashboard/update'), ['id' => 'uploader']); ?>
+
+
     <div class="container">
       <div class="row"> 
 
     <div class="col-6">
     <div class="row g-3 my-2">
   <div class="col">
+  <input type="hidden" class="form-control" aria-label="First name" name="eid" >
     <input type="text" class="form-control" placeholder="namabarang" aria-label="First name" name="enamabarang" >
   </div>
   <div class="col">
@@ -592,46 +596,6 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 
 
 <table class="table table-bordered" id="editTable">
-  <!-- <tr>
-    <td>
-      <img src="https://picsum.photos/200" width="80" height="80">
-      <br> Caption 1
-    </td>
-    <td>
-      <img src="https://picsum.photos/200" width="80" height="80">
-      <br> Caption 2
-    </td>
-  </tr>
-  <tr>
-    <td>
-      <img src="https://picsum.photos/200" width="80" height="80">
-      <br> Caption 3
-    </td>
-    <td>
-      <img src="https://picsum.photos/200" width="80" height="80">
-      <br> Caption 4
-    </td>
-  </tr>
-  <tr>
-    <td>
-      <img src="https://picsum.photos/200" width="80" height="80">
-      <br> Caption 5
-    </td>
-    <td>
-      <img src="https://picsum.photos/200" width="80" height="80">
-      <br> Caption 6
-    </td>
-  </tr>
-  <tr>
-    <td>
-      <img src="https://picsum.photos/200" width="80" height="80">
-      <br> Caption 7
-    </td>
-    <td>
-      <img src="https://picsum.photos/200" width="80" height="80">
-      <br> Caption 8
-    </td>
-  </tr> -->
 </table>
 
 
@@ -653,12 +617,18 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 
 
 
-	</form>
+	<!-- </form> -->
+
       </div>
       <div class="modal-footer">
-        <button type="button" class="btn btn-secondary"  data-bs-dismiss="modal" >Close</button>
-        <button type="button" id="tombol_tambah" class="btn btn-primary">Understood</button>
+        <!-- <button type="button" class="btn btn-secondary"  data-bs-dismiss="modal" >Close</button>
+        <button type="button" id="tombol_tambah" class="btn btn-primary">Understood</button> -->
+        <p>
+        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+            <input type="submit" value="Upload">
+        </p>
       </div>
+      <?php echo form_close() ?>
     </div>
   </div>
 </div>
@@ -686,6 +656,37 @@ defined('BASEPATH') OR exit('No direct script access allowed');
           
         //fungsi tampil barang
     });
+
+
+    $('#uploader').submit(function (event) {
+
+      
+      var a = new FormData(this)
+      
+      console.log("tes", a)
+          event.preventDefault();
+          
+          $.ajax({
+
+              // url: window.location.href + '/post',
+              url: '<?php echo base_url('Dashboard/update'); ?>',
+
+              type: "POST",
+              dataType: 'json',
+              data: new FormData(this),
+              processData: false,
+              contentType: false,
+              success: function (data) {
+
+                $('#editModal').modal('toggle');
+                tampil_data_barang(); 
+                  console.log(data);
+                  $("#message").append(data.message);
+              }
+          });
+      });
+
+
 
     $("#tombol_tambah").click(function(){
 
@@ -737,10 +738,11 @@ $('#editModal').on("hide.bs.modal", function() {
 
     function tampil_data_barang(){
         $.ajax({
-            type  : 'ajax',
+            type  : 'POST',
             url   : 'GetItem',
             async : false,
             dataType : 'json',
+            data : {postdata : 'Mobil'},
             success : function(data){
                 var html = '';
                 var i;
@@ -749,7 +751,7 @@ $('#editModal').on("hide.bs.modal", function() {
                             '<td>'+data.Item[i].namaItem+'</td>'+
                             '<td>'+data.Item[i].tahun+'</td>'+
                             '<td>'+data.Item[i].harga+'</td>'+
-                            '<td><button type="button" class="btn btn-warning" onclick="detail('+data.Item[i].id+')">Edit</button> <button type="button" class="btn btn-danger" onclick="del('+data.Item[i].id+')">Delete</button> </td>'+
+                            '<td><button type="button" class="btn btn-warning" onclick="detail('+data.Item[i].id+')">Edit</button> <button type="button" class="btn btn-danger" onclick="del(`'+data.Item[i].id+'`,`'+data.Item[i].nopol+'`)">Delete</button> </td>'+
                             '</tr>';
                 }
                 $('#show_data').html(html);
@@ -757,22 +759,16 @@ $('#editModal').on("hide.bs.modal", function() {
         });
     }
 
-    function del(id){
+    function del(id,nopol){
     $.ajax({
     url: 'DeleteItem/delete',
-    data: {id: id},
+    // data: {id: id},
+    data: {id: id, nopol : nopol},
+
     type: 'POST',
-    dataType: 'json',
+    // dataType: 'json',
     success: function(response) {
-      location.reload();
       tampil_data_barang();
-        // if (response == "success") {
-        //     alert(response);
-        //     // reload halaman
-        //     location.reload();
-        // } else {
-        //     alert(response);
-        // }
     }
     // error: function() {
     //         alert('Terjadi kesalahan saat menghapus data mobil');
@@ -794,6 +790,7 @@ $('#editModal').on("hide.bs.modal", function() {
 
                   $('#editModal').modal('toggle');
 
+                  $("input[name='eid']").val(response[0].id);
                   $("input[name='enamabarang']").val(response[0].namaItem);
                   $("input[name='etahun']").val(response[0].tahun);
                   $("input[name='eharga']").val(response[0].harga);
@@ -830,7 +827,7 @@ $('#editModal').on("hide.bs.modal", function() {
 
                           var img1 = document.createElement("img");
 
-                          img1.src = "./assets/images/"+response[0].fotodepan;
+                          img1.src = "./assets/images/Mobil/"+response[0].nopol+"/"+response[0].fotodepan;
                           img1.width = 80;
                           img1.height = 80;
                           cell1.appendChild(img1);
@@ -843,7 +840,7 @@ $('#editModal').on("hide.bs.modal", function() {
 
 
                           var img2 = document.createElement("img");
-                          img2.src = "./assets/images/"+response[0].fotobelakang;
+                          img2.src = "./assets/images/Mobil/"+response[0].nopol+"/"+response[0].fotobelakang;
                           img2.width = 80;
                           img2.height = 80;
                           cell2.appendChild(img2);
@@ -859,7 +856,7 @@ $('#editModal').on("hide.bs.modal", function() {
                           var cell4 = row2.insertCell();
 
                           var img3 = document.createElement("img");
-                          img3.src = "./assets/images/"+response[0].fotokiri;
+                          img3.src = "./assets/images/Mobil/"+response[0].nopol+"/"+response[0].fotokiri;
                           img3.width = 80;
                           img3.height = 80;
                           cell3.appendChild(img3);
@@ -870,7 +867,7 @@ $('#editModal').on("hide.bs.modal", function() {
                           cell3.appendChild(caption3);
 
                           var img4 = document.createElement("img");
-                          img4.src = "./assets/images/"+response[0].fotokanan;
+                          img4.src = "./assets/images/Mobil/"+response[0].nopol+"/"+response[0].fotokanan;
                           img4.width = 80;
                           img4.height = 80;
                           cell4.appendChild(img4);
@@ -887,7 +884,7 @@ $('#editModal').on("hide.bs.modal", function() {
                           var cell6 = row3.insertCell();
 
                           var img5 = document.createElement("img");
-                          img5.src = "./assets/images/" + response[0].fotodalam1;
+                          img5.src = "./assets/images/Mobil/"+response[0].nopol+"/"+response[0].fotodalam1;
                           img5.width = 80;
                           img5.height = 80;
                           cell5.appendChild(img5);
@@ -898,7 +895,7 @@ $('#editModal').on("hide.bs.modal", function() {
                           cell5.appendChild(caption5);
 
                           var img6 = document.createElement("img");
-                          img6.src = "./assets/images/" + response[0].fotodalam2;
+                          img6.src = "./assets/images/Mobil/"+response[0].nopol+"/"+response[0].fotodalam2;
                           img6.width = 80;
                           img6.height = 80;
                           cell6.appendChild(img6);
@@ -914,7 +911,7 @@ $('#editModal').on("hide.bs.modal", function() {
                           var cell8 = row4.insertCell();
 
                           var img7 = document.createElement("img");
-                          img7.src = "./assets/images/" + response[0].fotomesin1;
+                          img7.src = "./assets/images/Mobil/"+response[0].nopol+"/"+response[0].fotomesin1;
                           img7.width = 80;
                           img7.height = 80;
                           cell7.appendChild(img7);
@@ -925,7 +922,7 @@ $('#editModal').on("hide.bs.modal", function() {
                           cell7.appendChild(caption7);
 
                           var img8 = document.createElement("img");
-                          img8.src = "./assets/images/" + response[0].fotomesin2;
+                          img8.src = "./assets/images/Mobil/"+response[0].nopol+"/"+response[0].fotomesin2;
                           img8.width = 80;
                           img8.height = 80;
                           cell8.appendChild(img8);

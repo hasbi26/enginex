@@ -82,7 +82,7 @@ p
 }
 p a
 {
-	display: inline;
+	display: block;
 	position: relative;
 	color: inherit;
 	border-bottom: solid 2px #fde0db;
@@ -1299,6 +1299,7 @@ section
 {
 	width: 100%;
 	margin-top: 57px;
+	display: flex;
 }
 .product-item
 {

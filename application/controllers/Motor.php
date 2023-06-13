@@ -32,6 +32,30 @@ class Motor extends CI_Controller {
 		$this->load->view('motor');
 	}
 
+	private function upload_image($field_name, $path, $userFile)
+	{
+
+			$config['upload_path'] = $path;
+			$config['allowed_types'] = 'gif|jpg|png';
+			$config['max_size'] = 150238;								   			
+			// $config['file_name'] = $field_name;
+			$config['file_name'] = $this->input->post('enopol'). "_foto";
+			
+			$this->load->library('upload', $config);
+			
+			if (!$this->upload->do_upload($userFile)) {
+
+				$error = array('error' => $this->upload->display_errors());
+				return '';
+			} else {
+				$upload_data = $this->upload->data();
+				return $upload_data['file_name'];
+			}
+		
+	} 
+	
+
+
 
 	public function update(){
 		// get data from ajax formdata
@@ -47,10 +71,11 @@ class Motor extends CI_Controller {
 		$warna = $this->input->post('ewarna');
 		$kilometer = $this->input->post('ekilometer');
 		$deskripsi = $this->input->post('edeskripsi');
+
+
 	
 		// get existing data
-		$existing_data = $this->db->get_where('t_Motor', array('id_motor' => $id))->row();
-
+		$existing_data = $this->db->get_where('t_Motor', array('id' => $id))->row();
 
 	
 		// handle image upload
@@ -59,25 +84,32 @@ class Motor extends CI_Controller {
 		$fotokanan = $existing_data->fotokanan;
 		$fotokiri = $existing_data->fotokiri;
 		$fotolain = $existing_data->fotolain;
-	
-		if (!empty($_FILES['fotodepan']['name'])) {
-			$fotodepan = $this->upload_image('fotodepan', $existing_data->$nopol);
+
+		$path = "./assets/images/Motor/".$nopol.'/' ;
+
+		if (!empty($_FILES['efotodepan']['name'])) {
+			unlink(FCPATH . $path . $fotodepan);
+			$fotodepan = $this->upload_image('fotodepan', $path, 'efotodepan'); 
 		}
 	
-		if (!empty($_FILES['fotobelakang']['name'])) {
-			$fotobelakang = $this->upload_image('fotobelakang', $existing_data->$nopol);
+		if (!empty($_FILES['efotobelakang']['name'])) {
+			unlink(FCPATH . $path . $fotobelakang);
+			$fotobelakang = $this->upload_image('fotobelakang', $path, 'efotobelakang');
 		}
 	
-		if (!empty($_FILES['fotokanan']['name'])) {
-			$fotokanan = $this->upload_image('fotokanan', $existing_data->$nopol);
+		if (!empty($_FILES['efotokanan']['name'])) {
+			unlink(FCPATH . $path . $fotokanan);
+			$fotokanan = $this->upload_image('fotokanan', $path, 'efotokanan');
 		}
 	
-		if (!empty($_FILES['fotokiri']['name'])) {
-			$fotokiri = $this->upload_image('fotokiri', $existing_data->$nopol);
+		if (!empty($_FILES['efotokiri']['name'])) {
+			unlink(FCPATH . $path . $fotokiri);
+			$fotokiri = $this->upload_image('fotokiri', $path, 'efotokiri');
 		}
 	
-		if (!empty($_FILES['fotolain']['name'])) {
-			$fotolain = $this->upload_image('fotolain', $existing_data->$nopol);
+		if (!empty($_FILES['efotolain']['name'])) {
+			unlink(FCPATH . $path . $fotolain);
+			$fotolain = $this->upload_image('fotolain', $path, 'efotolain');
 		}
 	
 		// update data to database
@@ -100,7 +132,7 @@ class Motor extends CI_Controller {
 			'fotokiri' => $fotokiri,
 			'fotolain' => $fotolain,
 		);
-		$this->db->where('id_motor', $id);
+		$this->db->where('id', $id);
 		$this->db->update('t_Motor', $data);
 	
 		// return response to ajax

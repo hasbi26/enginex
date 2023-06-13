@@ -157,12 +157,11 @@ class AddItemMotor extends CI_Controller {
     mkdir($path,0755,TRUE);
   }
 
-    // handle image upload
-    $fotodepan = $this->upload_image('fotodepan', $nopol, $path);
-    $fotobelakang = $this->upload_image('fotobelakang', $nopol, $path);
-    $fotokanan = $this->upload_image('fotokanan', $nopol, $path);
-    $fotokiri = $this->upload_image('fotokiri', $nopol,$path);
-    $fotolain = $this->upload_image('fotolain', $nopol,$path);
+    $fotodepan = $this->upload_image('fotodepan', $path);
+    $fotobelakang = $this->upload_image('fotobelakang', $path);
+    $fotokanan = $this->upload_image('fotokanan', $path);
+    $fotokiri = $this->upload_image('fotokiri', $path);
+    $fotolain = $this->upload_image('fotolain', $path);
     // save data to database
     $data = array(
         'namaItem'=>$namaItem,
@@ -189,17 +188,39 @@ class AddItemMotor extends CI_Controller {
     echo json_encode(array('status' => 'success', 'message' => 'Data berhasil disimpan'));
 }
 
-private function upload_image($field_name, $nopol, $path)
+
+// private function upload_image($field_name, $path, $file_name)
+// {
+//     if (!empty($_FILES[$field_name]['name'])) {
+//         $config['upload_path'] = $path;
+//         $config['allowed_types'] = 'gif|jpg|png';
+//         $config['max_size'] = 2048;
+//         $config['file_name'] = $file_name;    
+//         $this->load->library('upload', $config);
+//         if (!$this->upload->do_upload($field_name)) {
+//             return '';
+//         } else {
+//             $upload_data = $this->upload->data();
+//             var_dump("upload data", $upload_data);
+//             return $file_name;
+//         }
+        
+//     } else {
+//         return '';
+//     }
+// }
+
+private function upload_image($field_name, $path)
 {
+    // $namaItem = $this->input->post('namabarang');
+    // $file_name = $namaItem . '_' . $field_name;
+
     if (!empty($_FILES[$field_name]['name'])) {
         $config['upload_path'] = $path;
         $config['allowed_types'] = 'gif|jpg|png';
         $config['max_size'] = 2048;
-        // $config['file_name'] = $field_name."_".time()."_".rand(1000,9999);
-        $config['file_name'] = $field_name;
-        
+        $config['file_name'] = $this->input->post('nopol'). "_foto";
         $this->load->library('upload', $config);
-        
         if (!$this->upload->do_upload($field_name)) {
             return '';
         } else {

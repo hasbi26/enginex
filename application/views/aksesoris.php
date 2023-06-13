@@ -15,9 +15,9 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 
 <a href="<?= site_url('auth/logout') ?>">Logout</a>
 <a href="<?= site_url('dashboard') ?>">Mobil</a>
-<a href="<?= site_url('aksesoris') ?>">Aksesoris</a>
+<a href="<?= site_url('Motor/Index') ?>">motor</a>
 
-<h1> Motor</h1>
+<h1> Aksesoris</h1>
 
 <div class="container">
 	
@@ -40,9 +40,10 @@ defined('BASEPATH') OR exit('No direct script access allowed');
         <table class="table table-striped" id="mydata">
             <thead>
                 <tr>
+                    <th>Id</th>
                     <th>Nama Barang</th>
-                    <th>Tahun</th>
                     <th>Harga</th>
+                    <th>Merk</th>
                     <th>Action</th>
                 </tr>
             </thead>
@@ -71,10 +72,10 @@ defined('BASEPATH') OR exit('No direct script access allowed');
               <div class="col-8">
                 <div class="row g-3 my-2">
                   <div class="col">
-                    <input type="text" class="form-control" placeholder="namabarang" aria-label="First name" name="namabarang">
+                    <input type="text" class="form-control" placeholder="namaItem" aria-label="First name" name="namaItem">
                   </div>
                   <div class="col">
-                    <input type="text" class="form-control" placeholder="tahun" aria-label="tahun" name="tahun">
+                    <input type="text" class="form-control" placeholder="qty" aria-label="qty" name="qty">
                   </div>
                 </div>
                 <div class="row g-3 my-2">
@@ -82,52 +83,15 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                     <input type="text" class="form-control" placeholder="harga" aria-label="harga" name="harga">
                   </div>
                   <div class="col">
-                    <input type="text" class="form-control" placeholder="merk" aria-label="merk" name="merk">
+                      <input type="text" class="form-control" placeholder="merk" aria-label="merk" name="merk">
+                    </div>
+                  <div class="col">
+                    <input type="text" class="form-control" placeholder="jenis" aria-label="jenis" name="jenis">
                   </div>
                 </div>
-                <div class="row g-3 my-2">
-                  <div class="col">
-                    <select class="form-select" aria-label="Default select example" name="model">
-                      <option selected>
-                        Pilih Model
-                      </option>
-                      <option value="Bebek">
-                        Bebek
-                      </option>
-                      <option value="Sport">
-                        Sport
-                      </option>
-                      <option value="Matic">
-                        Matic
-                      </option>
-                      <option value="Vespa">
-                        Vespa
-                      </option>
-                      <option value="Roda3">
-                        Roda3
-                      </option>
-                    </select>
                     <div class="row g-3 my-2">
                       <div class="col">
-                        <input type="text" class="form-control" placeholder="pajak" aria-label="pajak" name="pajak">
-                      </div>
-                    </div>
-                    <div class="row g-3 my-2">
-                      <div class="col">
-                        <input type="text" class="form-control" placeholder="volume_mesin" aria-label="volume_mesin" name="volume_mesin">
-                      </div>
-                    </div>
-                    <div class="row g-3 my-2">
-                      <div class="col">
-                        <input type="text" class="form-control" placeholder="warna" aria-label="warna" name="warna">
-                      </div>
-                    </div>
-                    <div class="row g-3 my-2">
-                      <div class="col">
-                        <input type="text" class="form-control" placeholder="nopol" aria-label="nopol" name="nopol">
-                      </div>
-                      <div class="col">
-                        <input type="text" class="form-control" placeholder="kilometer" aria-label="kilometer" name="kilometer">
+                        <input type="text" class="form-control" placeholder="keterangan" aria-label="keterangan" name="keterangan">
                       </div>
                     </div>
                     <div class="row g-3 my-2">
@@ -135,35 +99,25 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                         <input type="text" class="form-control" placeholder="deskripsi" aria-label="deskripsi" name="deskripsi">
                       </div>
                     </div>
-                  </div>
                   <div class="col-4">
                     <div class="row g-3 my-2">
                       <div class="col">
-                        <label for="fotodepan" class="form-label">foto depan</label> <input class="form-control form-control-sm" id="fotodepan" name="fotodepan" type="file">
+                        <label for="foto1" class="form-label">foto1</label> <input class="form-control form-control-sm" id="foto1" name="foto1" type="file">
                       </div>
                     </div>
                     <div class="row g-3 my-2">
                       <div class="col">
-                        <label for="fotobelakang" class="form-label">foto belakang</label> <input class="form-control form-control-sm" id="fotobelakang" name="fotobelakang" type="file">
+                        <label for="foto2" class="form-label">foto2</label> <input class="form-control form-control-sm" id="foto2" name="foto2" type="file">
                       </div>
                     </div>
                     <div class="row g-3 my-2">
                       <div class="col">
-                        <label for="fotokanan" class="form-label">foto kanan</label> <input class="form-control form-control-sm" id="fotokanan" name="fotokanan" type="file">
+                        <label for="foto3" class="form-label">foto3</label> <input class="form-control form-control-sm" id="foto3" name="foto3" type="file">
                       </div>
                     </div>
-                    <div class="row g-3 my-2">
-                      <div class="col">
-                        <label for="fotokiri" class="form-label">foto kiri</label> <input class="form-control form-control-sm" id="fotokiri" name="fotokiri" type="file">
-                      </div>
-                    </div>
-                    <div class="row g-3 my-2">
-                      <div class="col">
-                        <label for="fotomesin1" class="form-label">foto Lain / Mesin</label> <input class="form-control form-control-sm" id="fotolain" name="fotolain" type="file">
-                      </div>
-                    </div>
+
+
                   </div>
-                </div>
               </div>
             </div>
           </div>
@@ -201,7 +155,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                     <input type="hidden" class="form-control" placeholder="id" aria-label="First name" name="eid">
                   </div>
                   <div class="col">
-                    <input type="text" class="form-control" placeholder="tahun" aria-label="tahun" name="etahun">
+                    <input type="text" class="form-control" placeholder="qty" aria-label="qty" name="eqty">
                   </div>
                   <div class="row g-3 my-2">
                     <div class="col">
@@ -210,84 +164,39 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                     <div class="col">
                       <input type="text" class="form-control" placeholder="merk" aria-label="merk" name="emerk">
                     </div>
-                  </div>
-                  <div class="row g-3 my-2">
-                    
                     <div class="col">
-                    <select class="form-select" aria-label="Default select example" name="emodel" id="emodel">
-                      <option selected>
-                        Pilih Model
-                      </option>
-                      <option value="Bebek">
-                        Bebek
-                      </option>
-                      <option value="Sport">
-                        Sport
-                      </option>
-                      <option value="Matic">
-                        Matic
-                      </option>
-                      <option value="Vespa">
-                        Vespa
-                      </option>
-                      <option value="Roda3">
-                        Roda3
-                      </option>
-                    </select>
-
-                  </div>
-                  </div>
-                  <div class="row g-3 my-2">
-                    <div class="col">
-                      <input type="text" class="form-control" placeholder="volume_mesin" aria-label="volume_mesin" name="evolume_mesin">
+                      <input type="text" class="form-control" placeholder="jenis" aria-label="jenis" name="ejenis">
                     </div>
                   </div>
                   <div class="row g-3 my-2">
                     <div class="col">
-                      <input type="text" class="form-control" placeholder="warna" aria-label="warna" name="ewarna">
+                      <input type="text" class="form-control" placeholder="keterangan" aria-label="keterangan" name="eketerangan">
                     </div>
                   </div>
-                  <div class="row g-3 my-2">
-                    <div class="col">
-                      <input type="text" class="form-control" placeholder="nopol" aria-label="nopol" name="enopol">
-                    </div>
-                    <div class="col">
-                      <input type="text" class="form-control" placeholder="kilometer" aria-label="kilometer" name="ekilometer">
-                    </div>
-                  </div>
-
                   <div class="row g-3 my-2">
                     <div class="col">
                       <input type="text" class="form-control" placeholder="deskripsi" aria-label="deskripsi" name="edeskripsi">
                     </div>
-                  </div>
+                  </div> 
                 </div>
                 <div class="col-3">
                   <div class="row g-3 my-2">
                     <div class="col">
-                      <label for="fotodepan" class="form-label">foto depan</label> <input class="form-control form-control-sm" id="efotodepan" name="efotodepan" type="file">
+                      <label for="foto1" class="form-label">foto 1</label> <input class="form-control form-control-sm" id="efoto1" name="efoto1" type="file">
                     </div>
                   </div>
                   <div class="row g-3 my-2">
                     <div class="col">
-                      <label for="fotobelakang" class="form-label">foto belakang</label> <input class="form-control form-control-sm" id="efotobelakang" name="efotobelakang" type="file">
+                      <label for="foto2" class="form-label">foto 2</label> <input class="form-control form-control-sm" id="efoto2" name="efoto2" type="file">
                     </div>
                   </div>
                   <div class="row g-3 my-2">
                     <div class="col">
-                      <label for="fotokanan" class="form-label">foto kanan</label> <input class="form-control form-control-sm" id="efotokanan" name="efotokanan" type="file">
+                      <label for="foto3" class="form-label">foto 3</label> <input class="form-control form-control-sm" id="efoto3" name="efoto3" type="file">
                     </div>
                   </div>
-                  <div class="row g-3 my-2">
-                    <div class="col">
-                      <label for="fotokiri" class="form-label">foto kiri</label> <input class="form-control form-control-sm" id="efotokiri" name="efotokiri" type="file">
-                    </div>
-                  </div>
-                  <div class="row g-3 my-2">
-                    <div class="col">
-                      <label for="fotomesin1" class="form-label">foto Lain</label> <input class="form-control form-control-sm" id="efotolain" name="efotolain" type="file">
-                    </div>
-                  </div>
+
+
                 </div>
                 <div class="col-3">
                   <table class="table table-bordered" id="editTable"></table>
@@ -335,6 +244,8 @@ defined('BASEPATH') OR exit('No direct script access allowed');
     
     $('#uploader').submit(function (event) {
 
+
+
       var a = new FormData(this)
 
                 event.preventDefault();
@@ -342,7 +253,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                 $.ajax({
 
                     // url: window.location.href + '/post',
-                    url: '<?php echo base_url('Motor/update'); ?>',
+                    url: '<?php echo base_url('UpdateItem/Aksesoris'); ?>',
 
                     type: "POST",
                     dataType: 'json',
@@ -377,7 +288,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
             contentType: false,
             enctype: 'multipart/form-data',
             type    : 'POST',
-            url     : '<?= base_url()?>'+ "AddItemMotor/create",
+            url     : '<?= base_url()?>'+ "AddItem/createAksesoris",
             data    : finalForm,
             cache   : false,
             success : function(data){
@@ -414,7 +325,7 @@ $('#editModalMotor').on("hide.bs.modal", function() {
       console.log("getItem", '<?php echo base_url();?>')
         $.ajax({
             type  : 'ajax',
-            url   :  '<?php echo base_url();?>'+'GetItemMotor',
+            url   :  '<?php echo base_url();?>'+'GetItem/Aksesoris',
             async : false,
             dataType : 'json',
             success : function(data){
@@ -422,11 +333,12 @@ $('#editModalMotor').on("hide.bs.modal", function() {
                 var i;
                 for(i=0; i<data.Item.length; i++){
                     html += '<tr>'+
+                            '<td>'+data.Item[i].id+'</td>'+
                             '<td>'+data.Item[i].namaItem+'</td>'+
-                            '<td>'+data.Item[i].tahun+'</td>'+
                             '<td>'+data.Item[i].harga+'</td>'+
-                            // '<td><button type="button" class="btn btn-warning" onclick="detail('+data.Item[i].id+')">Edit</button> <button type="button" class="btn btn-danger" onclick="del('+data.Item[i].id+','+data.Item[i].nopol+')">Delete</button> </td>'+
-                            '<td><button type="button" class="btn btn-warning" onclick="detail('+data.Item[i].id+')">Edit</button> <button type="button" class="btn btn-danger" onclick="del(`'+data.Item[i].id+'`,`'+data.Item[i].nopol+'`)">Delete</button> </td>'+
+                            '<td>'+data.Item[i].merk+'</td>'+
+                            // '<td><button type="button" class="btn btn-warning" onclick="detail('+data.Item[i].id_motor+')">Edit</button> <button type="button" class="btn btn-danger" onclick="del('+data.Item[i].id_motor+','+data.Item[i].nopol+')">Delete</button> </td>'+
+                            '<td><button type="button" class="btn btn-warning" onclick="detail('+data.Item[i].id+')">Edit</button> <button type="button" class="btn btn-danger" onclick="del(`'+data.Item[i].id+'`,`'+data.Item[i].namaItem+'`)">Delete</button> </td>'+
                             '</tr>';
                 }
                 $('#show_data').html(html);
@@ -440,7 +352,7 @@ $('#editModalMotor').on("hide.bs.modal", function() {
 
 
     $.ajax({
-    url   :  '<?php echo base_url();?>'+'DeleteItem/deleteMotor',
+    url   :  '<?php echo base_url();?>'+'DeleteItem/deleteAksesoris',
     data: {id: id, nopol : nopol},
     type: 'POST',
     // dataType: 'json',
@@ -460,7 +372,7 @@ $('#editModalMotor').on("hide.bs.modal", function() {
         console.log("detail", id) 
 
         $.ajax({
-                url   :  '<?php echo base_url();?>'+'GetItemMotor/getDetail',
+                url   :  '<?php echo base_url();?>'+'GetItem/AksesorisDetail',
                 method: 'post',
                 data: {id: id},
                 dataType: 'json',
@@ -475,25 +387,13 @@ $('#editModalMotor').on("hide.bs.modal", function() {
 
                   $("input[name='eid']").val(response[0].id);
                   $("input[name='enamabarang']").val(response[0].namaItem);
-                  $("input[name='etahun']").val(response[0].tahun);
+                  $("input[name='eqty']").val(response[0].qty);
                   $("input[name='eharga']").val(response[0].harga);
-                  $("input[name='emerk']").val(response[0].Merk);
-                  // $("#ejenis").val(response[0].jenis).change();
-                  // $("input[name='emodel']").val(response[0].model).change();
-                  $("#emodel").val(response[0].model).change();
-                  // $("#etransmisi").val(response[0].transmisi).change();
-                  $("input[name='evolume_mesin']").val(response[0].volume_mesin);
-                  // $("#ebahanbakar").val(response[0].bahanbakar).change();
-                  // $("#etransmisi").val(response[0].transmisi).change();
-                  
-                  $("input[name='ewarna']").val(response[0].warna);
-                  $("input[name='enopol']").val(response[0].nopol);
-                  $("input[name='ekilometer']").val(response[0].kilometer);
-                  // $("#eac").val(response[0].ac).change();
- 
+                  $("input[name='emerk']").val(response[0].merk);
+                  $("input[name='ejenis']").val(response[0].jenis);
+                  $("input[name='eketerangan']").val(response[0].keterangan);
                   $("input[name='edeskripsi']").val(response[0].deskripsi);
-                  // ealarm
-
+                  
 
 
                   var table = document.getElementById("editTable");
@@ -506,26 +406,26 @@ $('#editModalMotor').on("hide.bs.modal", function() {
 
                           var img1 = document.createElement("img");
 
-                          img1.src = '<?php echo base_url();?>'+"/assets/images/Motor/"+response[0].nopol+"/"+response[0].fotodepan;
+                          img1.src = '<?php echo base_url();?>'+"/assets/images/Aksesoris/"+response[0].namaItem+"/"+response[0].foto1;
                           img1.width = 80;
                           img1.height = 80;
                           cell1.appendChild(img1);
 
                           var caption1 = document.createElement("p");
                           caption1.id = "caption1"; 
-                          var captionText1 = document.createTextNode(response[0].fotodepan);
+                          var captionText1 = document.createTextNode(response[0].foto1);
                           caption1.appendChild(captionText1);
                           cell1.appendChild(caption1);
 
 
                           var img2 = document.createElement("img");
-                          img2.src = '<?php echo base_url();?>'+"/assets/images/Motor/"+response[0].nopol+"/"+response[0].fotobelakang;
+                          img2.src = '<?php echo base_url();?>'+"/assets/images/Aksesoris/"+response[0].namaItem+"/"+response[0].foto2;
                           img2.width = 80;
                           img2.height = 80;
                           cell2.appendChild(img2);
 
                           var caption2 = document.createElement("p");
-                          var captionText2 = document.createTextNode(response[0].fotobelakang);
+                          var captionText2 = document.createTextNode(response[0].foto2);
                           caption2.appendChild(captionText2);
                           cell2.appendChild(caption2);
                         
@@ -535,48 +435,15 @@ $('#editModalMotor').on("hide.bs.modal", function() {
                           var cell4 = row2.insertCell();
 
                           var img3 = document.createElement("img");
-                          img3.src = '<?php echo base_url();?>'+"/assets/images/Motor/"+response[0].nopol+"/"+response[0].fotokiri;
+                          img3.src = '<?php echo base_url();?>'+"/assets/images/Aksesoris/"+response[0].namaItem+"/"+response[0].foto3;
                           img3.width = 80;
                           img3.height = 80;
                           cell3.appendChild(img3);
 
                           var caption3 = document.createElement("p");
-                          var captionText3 = document.createTextNode(response[0].fotokiri);
+                          var captionText3 = document.createTextNode(response[0].foto3);
                           caption3.appendChild(captionText3);
                           cell3.appendChild(caption3);
-
-                          var img4 = document.createElement("img");
-                          img4.src = '<?php echo base_url();?>'+"/assets/images/Motor/"+response[0].nopol+"/"+response[0].fotokanan;
-                          img4.width = 80;
-                          img4.height = 80;
-                          cell4.appendChild(img4);
-
-                          var caption4 = document.createElement("p");
-                          var captionText4 = document.createTextNode(response[0].fotokanan);
-                          caption4.appendChild(captionText4);
-                          cell4.appendChild(caption4);
-
-
-                          var row3 = table.insertRow();
-
-                          var cell5 = row3.insertCell();
-
-                          var img5 = document.createElement("img");
-                          img5.src = '<?php echo base_url();?>'+"/assets/images/Motor/"+response[0].nopol+"/"+response[0].fotolain;
-                          img5.width = 80;
-                          img5.height = 80;
-                          cell5.appendChild(img5);
-
-                          var caption5 = document.createElement("p");
-                          var captionText5 = document.createTextNode(response[0].fotolain);
-                          caption5.appendChild(captionText5);
-                          cell5.appendChild(caption5);
-
-
-
-  
-
-
           
               }
 

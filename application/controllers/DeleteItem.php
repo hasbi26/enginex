@@ -7,6 +7,7 @@ class DeleteItem extends CI_Controller {
 
          $this->load->model('Mobil_model');
          $this->load->model('Motor_model');
+         $this->load->model('Aksesoris_model');
     }
 
 
@@ -14,20 +15,19 @@ class DeleteItem extends CI_Controller {
 
     public function delete() {
         $id = $this->input->post('id');
+        $firstPath = 'assets/images/Mobil/';
+        $pathFolder = $this->input->post('nopol');
+        $finalPath = $firstPath.$pathFolder;
+
+        $this->load->helper("file"); 
+
+        try {
+            delete_files($finalPath, true);
+            rmdir($finalPath);
+        } catch (\Exception $e) {
+            exit($e->getMessage());
+        }
         
-        $data = $this->Mobil_model->getItemByid($id);
-
-
-
-        
-          unlink(FCPATH . 'assets/images/' . $data[0]["fotodepan"]);
-          unlink(FCPATH . 'assets/images/' . $data[0]["fotokanan"]);
-          unlink(FCPATH . 'assets/images/' . $data[0]["fotokiri"]);
-          unlink(FCPATH . 'assets/images/' . $data[0]["fotobelakang"]);
-          unlink(FCPATH . 'assets/images/' . $data[0]["fotodalam1"]);
-          unlink(FCPATH . 'assets/images/' . $data[0]["fotodalam2"]);
-          unlink(FCPATH . 'assets/images/' . $data[0]["fotomesin1"]);
-          unlink(FCPATH . 'assets/images/' . $data[0]["fotomesin2"]);
           
         $result = $this->Mobil_model->delete($id);
         if ($result) {
@@ -46,19 +46,41 @@ class DeleteItem extends CI_Controller {
 
         $this->load->helper("file"); // load the helper
 
-        var_dump($finalPath);
-        die;
 
-        // delete_files($path, true)
-        
-        $data = $this->Motor_model->getItemByid($id);
-          unlink(FCPATH . 'assets/images/Motor/' . $data[0]["fotodepan"]);
-          unlink(FCPATH . 'assets/images/Motor/' . $data[0]["fotokanan"]);
-          unlink(FCPATH . 'assets/images/Motor/' . $data[0]["fotokiri"]);
-          unlink(FCPATH . 'assets/images/Motor/' . $data[0]["fotobelakang"]);
-          unlink(FCPATH . 'assets/images/Motor/' . $data[0]["fotolain"]);
+        try {
+            delete_files($finalPath, true);
+            rmdir($finalPath);
+        } catch (\Exception $e) {
+            exit($e->getMessage());
+        }
+ 
           
         $result = $this->Motor_model->delete($id);
+        if ($result) {
+            echo 'success';
+        } else {
+            echo 'failed';
+        }
+    }
+
+    public function deleteAksesoris() {
+        $id = $this->input->post('id');
+        $firstPath = 'assets/images/Aksesoris/';
+        $pathFolder = $this->input->post('nopol');
+        $finalPath = $firstPath.$pathFolder;
+
+        $this->load->helper("file"); // load the helper
+
+
+        try {
+            delete_files($finalPath, true);
+            rmdir($finalPath);
+        } catch (\Exception $e) {
+            exit($e->getMessage());
+        }
+ 
+          
+        $result = $this->Aksesoris_model->delete($id);
         if ($result) {
             echo 'success';
         } else {

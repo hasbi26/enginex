@@ -18,6 +18,12 @@ defined('BASEPATH') or exit('No direct script access allowed');
 			max-height: 200px;
 			object-fit: contain;
 		}
+		
+		.btn-custom {
+  background-color: #F8981E;
+  color: #000;
+  font-weight:bold;
+}
 	</style>
 
 
@@ -50,12 +56,13 @@ defined('BASEPATH') or exit('No direct script access allowed');
 					<div class="row">
 						<div class="col-lg-12 text-right">
 							<div class="logo_container">
-								<a href="#">colo<span>shop</span></a>
+								<!-- <a href="#">colo<span>shop</span></a> -->
+								<img src="<?= base_url(); ?>assets/logo/rideline.png" alt="..." height="36">
 							</div>
 							<nav class="navbar">
 								<ul class="">
 									<li class="">
-										<a href="" class="btn btn-sm btn-danger"><i class="fa fa-phone" aria-hidden="true"></i> Contact Us</a>
+										<a href="" class="btn btn-sm btn-custom"><i class="fa fa-phone" aria-hidden="true"></i> <span style="color:#000; font-weight:bold;">Contact Us</span></a>
 									</li>
 								</ul>
 							</nav>
@@ -76,26 +83,41 @@ defined('BASEPATH') or exit('No direct script access allowed');
 
 					<div class="breadcrumbs d-flex flex-row align-items-center">
 						<ul>
-							<li><a href="index.html">Home</a></li>
+							<li><a href="<?= base_url() ?>">Home</a></li>
 						</ul>
 					</div>
 
 					<!-- Sidebar -->
 
-					<div class="sidebar">
+					<!-- <div class="sidebar">
 						<div class="sidebar_section">
 							<div class="sidebar_title">
 								<h5>Product Category</h5>
 							</div>
 							<ul class="sidebar_categories">
-								<li><a href="#">Mobil</a></li>
-								<li class="active"><a href="#"><span><i class="fa fa-angle-double-right" aria-hidden="true"></i></span>Motor</a></li>
-								<li><a href="#">Accessories</a></li>
+								<li class="active"><a href="#" onclick="tampil_data_barang('Mobil')"><span><i class="fa fa-angle-double-right" aria-hidden="true"></i></span>Mobil</a></li>
+								<li><a href="#" onclick="tampil_data_barang('Motor')">Motor</a></li>
+								<li><a href="#" onclick="tampil_data_barang('Aksesoris')">Accessories</a></li>
 							</ul>
 						</div>
 
 
-					</div>
+					</div> -->
+
+
+					<div class="sidebar">
+  <div class="sidebar_section">
+    <div class="sidebar_title">
+      <h5>Product Category</h5>
+    </div>
+    <ul class="sidebar_categories">
+      <li class="sidebar_category active"><a href="#" id="default" onclick="tampil_data_barang('Mobil', this)">Mobil</a></li>
+      <li class="sidebar_category"><a href="#" onclick="tampil_data_barang('Motor', this)">Motor</a></li>
+      <li class="sidebar_category"><a href="#" onclick="tampil_data_barang('Aksesoris', this)">Accessories</a></li>
+    </ul>
+  </div>
+</div>
+
 
 					<!-- Main Content -->
 
@@ -114,10 +136,11 @@ defined('BASEPATH') or exit('No direct script access allowed');
 											<li>
 												<span class="type_sorting_text">Default Sorting</span>
 												<i class="fa fa-angle-down"></i>
-												<ul class="sorting_type">
+												<ul class="sorting_type" id="sorting_options">
 													<li class="type_sorting_btn" data-sort="" data-isotope-option='{ "sortBy": "original-order" }'><span>Default Sorting</span></li>
 													<li class="type_sorting_btn" data-sort="price" data-isotope-option='{ "sortBy": "price" }'><span>Price</span></li>
-													<li class="type_sorting_btn" data-sort="name" data-isotope-option='{ "sortBy": "name" }'><span>Product Name</span></li>
+													<li class="type_sorting_btn" data-sort="Tahun_Asc" data-isotope-option='{ "sortBy": "Tahun_Asc" }'><span>Tahun Terendah</span></li>
+													<li class="type_sorting_btn" data-sort="Tahun_Desc" data-isotope-option='{ "sortBy": "Tahun_Desc" }'><span>Tahun Tertinggi</span></li>
 												</ul>
 											</li>
 											<li>
@@ -262,11 +285,11 @@ defined('BASEPATH') or exit('No direct script access allowed');
 				<div class="row">
 					<div class="col-lg-6">
 						<div class="footer_nav_container d-flex flex-sm-row flex-column align-items-center justify-content-lg-start justify-content-center text-center">
-							<ul class="footer_nav">
+							<!-- <ul class="footer_nav">
 								<li><a href="#">Blog</a></li>
 								<li><a href="#">FAQs</a></li>
 								<li><a href="contact.html">Contact us</a></li>
-							</ul>
+							</ul> -->
 						</div>
 					</div>
 					<div class="col-lg-6">
@@ -284,7 +307,7 @@ defined('BASEPATH') or exit('No direct script access allowed');
 				<div class="row">
 					<div class="col-lg-12">
 						<div class="footer_nav_container">
-							<div class="cr">©2018 All Rights Reserverd. Template by <a href="#">Colorlib</a> &amp; distributed by <a href="https://themewagon.com">ThemeWagon</a></div>
+							<div class="cr">©2023 All Rights Reserverd. RidelLine</div>
 						</div>
 					</div>
 				</div>
@@ -310,64 +333,111 @@ defined('BASEPATH') or exit('No direct script access allowed');
 
 
 <script>
-	tampil_data_barang();
+
+	function test(){
+
+		console.log("aduh")
+	}
+
+	tampil_data_barang("Mobil",$("#default")[0]);
+
 
 	$(document).ready(function() {
-		$('.type_sorting_btn').click(function() {
-			const dataSort = $(this).data('sort');
-			// $('.product-grid').html('');
-			if (dataSort === 'name') {
-				let result = $('.product-item').sort(function(a, b) {
-					let contentA = $(a).data('name');
-					let contentB = $(b).data('name');
-					return (contentA < contentB) ? -1 : (contentA > contentB) ? 1 : 0;
-				});
+  $('.type_sorting_btn').click(function() {
+    const dataSort = $(this).data('sort');
+    if (dataSort === 'name') {
+      let result = $('.product-item').sort(function(a, b) {
+        let contentA = $(a).data('name');
+        let contentB = $(b).data('name');
+        return (contentA < contentB) ? -1 : (contentA > contentB) ? 1 : 0;
+      });
+
+      $('.product-grid').empty();
+      $('.product-grid').append(result);
+    } else if (dataSort === 'price') {
+      let result = $('.product-item').sort(function(a, b) {
+        let contentA = parseInt($(a).data('price'));
+        let contentB = parseInt($(b).data('price'));
+        return (contentA < contentB) ? -1 : (contentA > contentB) ? 1 : 0;
+      });
+
+      $('.product-grid').empty();
+      $('.product-grid').append(result);
+    }
+  });
+});
+
+	// $(document).ready(function() {
+	// 	$('.type_sorting_btn').click(function() {
+	// 		const dataSort = $(this).data('sort');
+	// 		// $('.product-grid').html('');
+	// 		if (dataSort === 'name') {
+	// 			let result = $('.product-item').sort(function(a, b) {
+	// 				let contentA = $(a).data('name');
+	// 				let contentB = $(b).data('name');
+	// 				return (contentA < contentB) ? -1 : (contentA > contentB) ? 1 : 0;
+	// 			});
 				
-				$('.product-grid').html(result);
+	// 			$('.product-grid').html(result);
 
-			} else if (dataSort === 'price') {
-				let result = $('.product-item').sort(function(a, b) {
-					let contentA = parseInt($(a).data('price'));
-					let contentB = parseInt($(b).data('price'));
-					return (contentA < contentB) ? -1 : (contentA > contentB) ? 1 : 0;
-				});
+	// 		} else if (dataSort === 'price') {
+	// 			let result = $('.product-item').sort(function(a, b) {
+	// 				let contentA = parseInt($(a).data('price'));
+	// 				let contentB = parseInt($(b).data('price'));
+	// 				return (contentA < contentB) ? -1 : (contentA > contentB) ? 1 : 0;
+	// 			});
 
-				$('.product-grid').html(result);
-			}
+	// 			$('.product-grid').html(result);
+	// 		}
 
-		});
-	});
+	// 	});
+	// });
 
-	function tampil_data_barang() {
+	function tampil_data_barang(param, elem, kategori, sort) {
+
+		// console.log("elem",elem)
+
+
+		var urlAll = 'GetItem' 
+
+
+		$('.sidebar_categories li').removeClass('active');
+  		$('.sidebar_categories li span').remove(); // hapus elemen yang ada sebelumnya
+  		$(elem).parent().addClass('active');
+  		$(elem).prepend('<span><i class="fa fa-angle-double-right" aria-hidden="true"></i></span>');
+  
+
+		console.log("test", param)
 		$.ajax({
-			type: 'ajax',
-			url: 'GetItem',
+			type: 'POST',
+			url: urlAll,
 			async: false,
+			data : {postdata : param},
 			dataType: 'json',
 			success: function(data) {
-
-				console.log("hehe", data.Item)
-
 				var products = data.Item;
-				var productItems = "";
-				// <img src="<?= base_url(); ?>assets/test/images/product_2.png" alt="">
 
+				          // Sorting berdasarkan harga (dari terendah ke tertinggi)
+			products.sort(function(a, b) {
+                return a.harga - b.harga;
+            });
+				var productItems = "";
+				$('.product-grid').empty(); // menghapus data sebelumnya
 				$.each(products, function(index, product) {
 					var productBubble = "";
 					if (product.isNew) {
 						productBubble = '<div class="product_bubble product_bubble_left product_bubble_green d-flex flex-column align-items-center"><span>new</span></div>';
 					}
-
 					var productItem = '<div class="product-item women" data-name="' + product.merk + ' ' + product.namaItem + '" data-price="' + product.harga + '">' +
 						'<div class="product product_filter">' +
 						'<div class="product_image">' +
-						'<img src="<?= base_url(); ?>assets/images/' + product.fotodepan + '" alt="' + product.namaItem + '">' +
+						'<img src="<?= base_url(); ?>assets/images/'+param+'/'+ ((param=="Aksesoris") ? product.namaItem : product.nopol) + '/' + ((param=="Aksesoris") ? product.foto1 : product.fotodepan) + '" alt="' + product.namaItem + '">' +
 						'</div>' +
 						'<div class="favorite"></div>' +
 						productBubble +
 						'<div class="product_info">' +
-						'<h6 class="product_name"><a href="welcome/detailProduct/' + product.id + '">' + product.merk + ' ' + product.namaItem + ' ' + product.tahun + '</a></h6>' +
-						'<div class="product_price">Rp. ' + (product.harga / 1000).toFixed(3) + '</div>' +
+						'<h6 class="product_name"><a href="welcome/detailProduct/' + product.id + '/' + param + '">' + product.merk + ' ' + product.namaItem + ' ' + product.namaItem + (product.tahun ? ' ' + product.tahun : '') +'</a></h6>' +
+						'<div class="product_price">Rp. ' +  formatRupiah(product.harga) + '</div>' +
 					'</div>' +
 					'</div>' +
 					'<div class="red_button add_to_cart_button"><a href="#">add to cart</a></div>' +
@@ -376,12 +446,9 @@ defined('BASEPATH') or exit('No direct script access allowed');
 					productItems += productItem;
 				});
 
-				// Append product items to the product grid container
+
 				$('.product-grid').append(productItems);
-
-
-
-
+				
 			},
 			error: function(error) {
 				console.log(error);
@@ -390,44 +457,49 @@ defined('BASEPATH') or exit('No direct script access allowed');
 	}
 
 
+	function formatRupiah(angka) {
+        var reverse = angka.toString().split('').reverse().join('');
+        var ribuan = reverse.match(/\d{1,3}/g);
+        ribuan = ribuan.join('.').split('').reverse().join('');
+        return ribuan;
+    }
 
 
-	// $.ajax({
-	//   url: "url-to-your-api",
-	//   method: "GET",
-	//   success: function(response) {
-	//     var products = response.products;
-	//     var productItems = "";
+	$('#sorting_options').on('click', '.type_sorting_btn', function() {
+    var sortingOption = $(this).data('sort'); // Ambil nilai data-sort dari elemen yang diklik
 
-	//     $.each(products, function(index, product) {
-	//       var productBubble = "";
-	//       if (product.isNew) {
-	//         productBubble = '<div class="product_bubble product_bubble_left product_bubble_green d-flex flex-column align-items-center"><span>new</span></div>';
-	//       }
 
-	//       var productItem = '<div class="product-item women">' +
-	//         '<div class="product product_filter">' +
-	//         '<div class="product_image">' +
-	//         '<img src="' + product.image + '" alt="' + product.name + '">' +
-	//         '</div>' +
-	//         '<div class="favorite"></div>' +
-	//         productBubble +
-	//         '<div class="product_info">' +
-	//         '<h6 class="product_name"><a href="single.html">' + product.name + '</a></h6>' +
-	//         '<div class="product_price">' + product.price + '</div>' +
-	//         '</div>' +
-	//         '</div>' +
-	//         '<div class="red_button add_to_cart_button"><a href="#">add to cart</a></div>' +
-	//         '</div>';
 
-	//       productItems += productItem;
-	//     });
+	var str = "Tahun_Asc";
+	var parts = sortingOption.split("_");
 
-	//     // Append product items to the product grid container
-	//     $('.product-grid').append(productItems);
-	//   },
-	//   error: function(error) {
-	//     console.log(error);
-	//   }
-	// });
+	var kat = parts[0]
+	var sort = 	parts[1]
+	console.log(parts[0]); // Output: "Tahun"
+	console.log(parts[1]); // Output: "Asc"
+
+
+
+	console.log("Sorting", sortingOption)
+    // Kirim data sorting ke controller menggunakan AJAX
+    $.ajax({
+        url: 'GetItem/MobilSorting',
+        type: 'POST',
+        data: {
+            kat : kat,
+			sort : sort
+        },
+        success: function(response) {
+            // Lakukan tindakan setelah menerima respons dari controller
+        },
+        error: function(xhr, status, error) {
+            // Tangani error jika terjadi
+        }
+    });
+});
+
+
+
+
+
 </script>

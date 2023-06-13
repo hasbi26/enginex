@@ -134,16 +134,6 @@ class AddItem extends CI_Controller {
     }
 
 
-
-
-
-
-
-
-
-
-
-
     public function create(){
     // get data from ajax formdata
 
@@ -168,15 +158,24 @@ class AddItem extends CI_Controller {
   $harga = $this->input->post('harga');
   $deskripsi = $this->input->post('deskripsi');
 
+  $path = "./assets/images/Mobil/".$nopol;
+
+  if(!is_dir($path)) //create the folder if it's not exists
+  {
+    mkdir($path,0755,TRUE);
+  }
+
+
+
     // handle image upload
-    $fotobelakang = $this->upload_image('fotobelakang', $nopol);
-    $fotodalam1 = $this->upload_image('fotodalam1', $nopol);
-    $fotodalam2 = $this->upload_image('fotodalam2', $nopol);
-    $fotodepan = $this->upload_image('fotodepan', $nopol);
-    $fotokanan = $this->upload_image('fotokanan', $nopol);
-    $fotokiri = $this->upload_image('fotokiri', $nopol);
-    $fotomesin1 = $this->upload_image('fotomesin1', $nopol);
-    $fotomesin2 = $this->upload_image('fotomesin2', $nopol);
+    $fotobelakang = $this->upload_image('fotobelakang', $nopol, $path);
+    $fotodalam1 = $this->upload_image('fotodalam1', $nopol, $path);
+    $fotodalam2 = $this->upload_image('fotodalam2', $nopol, $path);
+    $fotodepan = $this->upload_image('fotodepan', $nopol, $path);
+    $fotokanan = $this->upload_image('fotokanan', $nopol, $path);
+    $fotokiri = $this->upload_image('fotokiri', $nopol, $path);
+    $fotomesin1 = $this->upload_image('fotomesin1', $nopol, $path);
+    $fotomesin2 = $this->upload_image('fotomesin2', $nopol, $path);
 
     // save data to database
     $data = array(
@@ -216,15 +215,62 @@ class AddItem extends CI_Controller {
     echo json_encode(array('status' => 'success', 'message' => 'Data berhasil disimpan'));
 }
 
-private function upload_image($field_name, $nopol)
+
+
+public function createAksesoris(){
+    // get data from ajax formdata
+
+  $namaItem = $this->input->post('namaItem');
+  $qty = $this->input->post('qty');
+  $jenis = $this->input->post('jenis');
+  $harga = $this->input->post('harga');
+  $merk = $this->input->post('merk');
+  $keterangan = $this->input->post('keterangan');
+  $deskripsi = $this->input->post('deskripsi');
+
+  $path = "./assets/images/Aksesoris/".$namaItem;
+
+  if(!is_dir($path)) //create the folder if it's not exists
+  {
+    mkdir($path,0755,TRUE);
+  }
+
+
+
+    // handle image upload
+    $foto1 = $this->upload_image('foto1', $namaItem, $path);
+    $foto2 = $this->upload_image('foto2', $namaItem, $path);
+    $foto3 = $this->upload_image('foto3', $namaItem, $path);
+
+    // save data to database
+    $data = array(
+        'namaItem'=>$namaItem,
+        'qty'=>$qty,
+        'harga'=>$harga,
+        'merk'=>$merk,
+        'deskripsi'=>$deskripsi,
+        'keterangan'=>$keterangan,
+        'jenis'=>$jenis,
+        'foto1' => $foto1,
+        'foto2' => $foto2,
+        'foto3' => $foto3
+    );
+    $this->db->insert('t_aksesoris', $data);
+
+    // return response to ajax
+    echo json_encode(array('status' => 'success', 'message' => 'Data berhasil disimpan'));
+}
+
+
+
+
+private function upload_image($field_name, $nopol, $path)
 {
     if (!empty($_FILES[$field_name]['name'])) {
-        $config['upload_path'] = './assets/images';
+        $config['upload_path'] = $path;
         $config['allowed_types'] = 'gif|jpg|png';
         $config['max_size'] = 2048;
-        // $config['file_name'] = $field_name."_".time()."_".rand(1000,9999);
-        $config['file_name'] = $nopol."_".rand(100,200);
-        
+        $config['file_name'] = $nopol."_foto";        
         $this->load->library('upload', $config);
         
         if (!$this->upload->do_upload($field_name)) {
