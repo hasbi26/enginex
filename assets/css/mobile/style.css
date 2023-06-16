@@ -56,13 +56,13 @@ body {
 	color: #212121;
 }
 
-.kategori_menu li:hover{
+.kategori_menu li:hover {
 	background-color: var(--orange);
 	border-radius: 7px;
 }
 
-.kategori_menu li:hover>a{
-	color:  white;
+.kategori_menu li:hover>a {
+	color: white;
 }
 
 .kategori_menu li.active {
@@ -73,38 +73,61 @@ body {
 .kategori_menu li.active>a {
 	color: white !important;
 }
-.product-grid{
+
+.product-grid {
 	margin-bottom: 80px;
 }
+
 .card {
 	border-radius: 14px;
 	box-shadow: 0px 20px 35px rgba(23, 20, 57, 0.04) !important;
 	border: none;
 }
-.card img{
+
+.card img {
 	border-radius: 12px;
 }
-.price{
+
+.price {
 	font-size: 16px;
 	color: var(--orange);
 	margin: 0 0 4px 0;
 }
+
 .btn-block {
 	width: 100% !important;
 	background-color: var(--orange);
 }
-.btn-xs{
+
+.btn-xs {
 	border-radius: 7px;
 	border: none;
 	padding: 0;
 	height: 23px;
 	line-height: 23px;
 }
-.ikon{
+
+.ikon {
 	color: var(--abuabu);
 }
 
-footer{
+.imageBox {
+	width: 100%;
+	height: 405px;
+	background-color: var(--orange);
+}
+
+.detailHeading {
+	font-size: 30px;
+	text-align: center;
+	margin: 9px auto 5px;
+}
+
+.detailBox{
+	margin: 0 0 100px 0;
+}
+
+footer {
 	margin-top: 30px;
 	display: block;
 	background-color: var(--orange);
@@ -116,17 +139,41 @@ footer{
 	box-shadow: 0px 20px 35px rgba(0, 0, 0, 0.14);
 }
 
-footer a{
+footer a {
 	flex: 1;
 	align-items: center;
 	justify-content: center;
 	padding: 22px 0;
 }
-footer a:hover{
+
+footer a:hover {
 	background-color: var(--ungu);
 }
-footer img{
+
+footer img {
 	height: 30px;
-	display: block;	
+	display: block;
 	margin: 0 auto;
+}
+
+.swiper {
+	width: 100%;
+	height: 100%;
+}
+
+.swiper-slide {
+	text-align: center;
+	font-size: 18px;
+	background-color: var(--abuabu);
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	color: white;
+}
+
+.swiper-slide img {
+	display: block;
+	width: 100%;
+	height: 100%;
+	object-fit: cover;
 }

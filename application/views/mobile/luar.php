@@ -11,7 +11,7 @@
 	<link rel="stylesheet" href="<?= base_url(); ?>/assets/css/mobile/style.css">
 	<link rel="preload" href="NATS.woff2" as="font" type="<?= base_url(); ?>/font/woff2" crossorigin>
 
-	<title>Hello, world!</title>
+	<title>Colo Shop Categories</title>
 </head>
 
 <body>

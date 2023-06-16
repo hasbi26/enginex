@@ -232,55 +232,55 @@ defined('BASEPATH') or exit('No direct script access allowed');
 					<div class="row">
 						<div class="col-sm-3">
 							<div class="cv-carousel d-none d-sm-block">
-								<?php $param= $this->uri->segment('4');?>
+								<?php $param = $this->uri->segment('4'); ?>
 								<div class="item">
-									<?php if ($param == 'Aksesoris'): ?>
-											<img src="<?= base_url(); ?>assets/images/<?= $param ?>/<?= $item[0]['namaItem'] ?>/<?= $item[0]['foto1'] ?>" class="detail-img" data-image="<?= base_url(); ?>assets/images/<?= $param ?>/<?= $item[0]['namaItem'] ?>/<?= $item[0]['foto1'] ?>">
-										<?php else: ?>
-											<img src="<?= base_url(); ?>assets/images/<?= $param ?>/<?= $item[0]['nopol'] ?>/<?= $item[0]['fotobelakang'] ?>" class="detail-img" data-image="<?= base_url(); ?>assets/images/<?= $param ?>/<?= $item[0]['nopol'] ?>/<?= $item[0]['fotobelakang'] ?>">
-										<?php endif; ?>
-								
+									<?php if ($param == 'Aksesoris') : ?>
+										<img src="<?= base_url(); ?>assets/images/<?= $param ?>/<?= $item[0]['namaItem'] ?>/<?= $item[0]['foto1'] ?>" class="detail-img" data-image="<?= base_url(); ?>assets/images/<?= $param ?>/<?= $item[0]['namaItem'] ?>/<?= $item[0]['foto1'] ?>">
+									<?php else : ?>
+										<img src="<?= base_url(); ?>assets/images/<?= $param ?>/<?= $item[0]['nopol'] ?>/<?= $item[0]['fotobelakang'] ?>" class="detail-img" data-image="<?= base_url(); ?>assets/images/<?= $param ?>/<?= $item[0]['nopol'] ?>/<?= $item[0]['fotobelakang'] ?>">
+									<?php endif; ?>
+
 								</div>
 								<div class="item">
 									<!-- <img src="<?= base_url(); ?>assets/images/<?= $param ?>/<?= $item[0]['nopol'] ?>/<?= $item[0]['fotodepan'] ?>" class="detail-img" data-image="<?= base_url(); ?>assets/images/<?= $param ?>/<?= $item[0]['nopol'] ?>/<?= $item[0]['fotodepan'] ?>"> -->
-									<?php if ($param == 'Aksesoris'): ?>
-											<img src="<?= base_url(); ?>assets/images/<?= $param ?>/<?= $item[0]['namaItem'] ?>/<?= $item[0]['foto2'] ?>" class="detail-img" data-image="<?= base_url(); ?>assets/images/<?= $param ?>/<?= $item[0]['namaItem'] ?>/<?= $item[0]['foto2'] ?>">
-										<?php else: ?>
-											<img src="<?= base_url(); ?>assets/images/<?= $param ?>/<?= $item[0]['nopol'] ?>/<?= $item[0]['fotodepan'] ?>" class="detail-img" data-image="<?= base_url(); ?>assets/images/<?= $param ?>/<?= $item[0]['nopol'] ?>/<?= $item[0]['fotodepan'] ?>">
-										<?php endif; ?>
+									<?php if ($param == 'Aksesoris') : ?>
+										<img src="<?= base_url(); ?>assets/images/<?= $param ?>/<?= $item[0]['namaItem'] ?>/<?= $item[0]['foto2'] ?>" class="detail-img" data-image="<?= base_url(); ?>assets/images/<?= $param ?>/<?= $item[0]['namaItem'] ?>/<?= $item[0]['foto2'] ?>">
+									<?php else : ?>
+										<img src="<?= base_url(); ?>assets/images/<?= $param ?>/<?= $item[0]['nopol'] ?>/<?= $item[0]['fotodepan'] ?>" class="detail-img" data-image="<?= base_url(); ?>assets/images/<?= $param ?>/<?= $item[0]['nopol'] ?>/<?= $item[0]['fotodepan'] ?>">
+									<?php endif; ?>
 								</div>
 								<div class="item">
 									<!-- <img src="<?= base_url(); ?>assets/images/<?= $param ?>/<?= $item[0]['nopol'] ?>/<?= $item[0]['fotokiri'] ?>" class="detail-img" data-image="<?= base_url(); ?>assets/images/<?= $param ?>/<?= $item[0]['nopol'] ?>/<?= $item[0]['fotokiri'] ?>"> -->
-									<?php if ($param == 'Aksesoris'): ?>
-											<img src="<?= base_url(); ?>assets/images/<?= $param ?>/<?= $item[0]['namaItem'] ?>/<?= $item[0]['foto3'] ?>" class="detail-img" data-image="<?= base_url(); ?>assets/images/<?= $param ?>/<?= $item[0]['namaItem'] ?>/<?= $item[0]['foto3'] ?>">
-										<?php else: ?>
-											<img src="<?= base_url(); ?>assets/images/<?= $param ?>/<?= $item[0]['nopol'] ?>/<?= $item[0]['fotokiri'] ?>" class="detail-img" data-image="<?= base_url(); ?>assets/images/<?= $param ?>/<?= $item[0]['nopol'] ?>/<?= $item[0]['fotokiri'] ?>">
-										<?php endif; ?>
-							
+									<?php if ($param == 'Aksesoris') : ?>
+										<img src="<?= base_url(); ?>assets/images/<?= $param ?>/<?= $item[0]['namaItem'] ?>/<?= $item[0]['foto3'] ?>" class="detail-img" data-image="<?= base_url(); ?>assets/images/<?= $param ?>/<?= $item[0]['namaItem'] ?>/<?= $item[0]['foto3'] ?>">
+									<?php else : ?>
+										<img src="<?= base_url(); ?>assets/images/<?= $param ?>/<?= $item[0]['nopol'] ?>/<?= $item[0]['fotokiri'] ?>" class="detail-img" data-image="<?= base_url(); ?>assets/images/<?= $param ?>/<?= $item[0]['nopol'] ?>/<?= $item[0]['fotokiri'] ?>">
+									<?php endif; ?>
+
 								</div>
 								<div class="item">
-								<?php if (isset($item[0]['fotokanan'])): ?>
-									<img src="<?= base_url(); ?>assets/images/<?= $param ?>/<?= $item[0]['nopol'] ?>/<?= $item[0]['fotokanan'] ?>" class="detail-img" data-image="<?= base_url(); ?>assets/images/<?= $param ?>/<?= $item[0]['nopol'] ?>/<?= $item[0]['fotokanan'] ?>">
+									<?php if (isset($item[0]['fotokanan'])) : ?>
+										<img src="<?= base_url(); ?>assets/images/<?= $param ?>/<?= $item[0]['nopol'] ?>/<?= $item[0]['fotokanan'] ?>" class="detail-img" data-image="<?= base_url(); ?>assets/images/<?= $param ?>/<?= $item[0]['nopol'] ?>/<?= $item[0]['fotokanan'] ?>">
 									<?php endif; ?>
 								</div>
 								<div class="item">
-								<?php if (isset($item[0]['fotodalam1'])): ?>
-									<img src="<?= base_url(); ?>assets/images/<?= $param ?>/<?= $item[0]['nopol'] ?>/<?= $item[0]['fotodalam1'] ?>" class="detail-img" data-image="<?= base_url(); ?>assets/images/<?= $param ?>/<?= $item[0]['nopol'] ?>/<?= $item[0]['fotodalam1'] ?>">
+									<?php if (isset($item[0]['fotodalam1'])) : ?>
+										<img src="<?= base_url(); ?>assets/images/<?= $param ?>/<?= $item[0]['nopol'] ?>/<?= $item[0]['fotodalam1'] ?>" class="detail-img" data-image="<?= base_url(); ?>assets/images/<?= $param ?>/<?= $item[0]['nopol'] ?>/<?= $item[0]['fotodalam1'] ?>">
 									<?php endif; ?>
 								</div>
 								<div class="item">
-								<?php if (isset($item[0]['fotodalam2'])): ?>
-									<img src="<?= base_url(); ?>assets/images/<?= $param ?>/<?= $item[0]['nopol'] ?>/<?= $item[0]['fotodalam2'] ?>" class="detail-img" data-image="<?= base_url(); ?>assets/images/<?= $param ?>/<?= $item[0]['nopol'] ?>/<?= $item[0]['fotodalam2'] ?>">
+									<?php if (isset($item[0]['fotodalam2'])) : ?>
+										<img src="<?= base_url(); ?>assets/images/<?= $param ?>/<?= $item[0]['nopol'] ?>/<?= $item[0]['fotodalam2'] ?>" class="detail-img" data-image="<?= base_url(); ?>assets/images/<?= $param ?>/<?= $item[0]['nopol'] ?>/<?= $item[0]['fotodalam2'] ?>">
 									<?php endif; ?>
 								</div>
 								<div class="item">
-									<?php if (isset($item[0]['fotomesin1'])): ?>
+									<?php if (isset($item[0]['fotomesin1'])) : ?>
 										<img src="<?= base_url(); ?>assets/images/<?= $param ?>/<?= $item[0]['nopol'] ?>/<?= $item[0]['fotomesin1'] ?>" class="detail-img" data-image="<?= base_url(); ?>assets/images/<?= $param ?>/<?= $item[0]['nopol'] ?>/<?= $item[0]['fotomesin1'] ?>">
 									<?php endif; ?>
 								</div>
 
 								<div class="item">
-									<?php if (isset($item[0]['fotomesin2'])): ?>
+									<?php if (isset($item[0]['fotomesin2'])) : ?>
 										<img src="<?= base_url(); ?>assets/images/<?= $param ?>/<?= $item[0]['nopol'] ?>/<?= $item[0]['fotomesin2'] ?>" class="detail-img" data-image="<?= base_url(); ?>assets/images/<?= $param ?>/<?= $item[0]['nopol'] ?>/<?= $item[0]['fotomesin2'] ?>">
 									<?php endif; ?>
 								</div>
@@ -290,12 +290,12 @@ defined('BASEPATH') or exit('No direct script access allowed');
 						<div class="col-sm-9">
 							<div class="single_product_image">
 
-							<?php if ($param == 'Aksesoris'): ?>
-											<!-- <img src="<?= base_url(); ?>assets/images/<?= $param ?>/<?= $item[0]['namaItem'] ?>/<?= $item[0]['foto1'] ?>" class="detail-img" data-image="<?= base_url(); ?>assets/images/<?= $param ?>/<?= $item[0]['namaItem'] ?>/<?= $item[0]['foto1'] ?>"> -->
-											<div class="single_product_image_background d-none d-sm-block" style="background-image:url(<?= base_url(); ?>assets/images/<?= $param ?>/<?= $item[0]['namaItem'] ?>/<?= $item[0]['foto1'] ?>)"></div>
-											<?php else: ?>
-											<div class="single_product_image_background d-none d-sm-block" style="background-image:url(<?= base_url(); ?>assets/images/<?= $param ?>/<?= $item[0]['nopol'] ?>/<?= $item[0]['fotodepan'] ?>)"></div>
-										<?php endif; ?>
+								<?php if ($param == 'Aksesoris') : ?>
+									<!-- <img src="<?= base_url(); ?>assets/images/<?= $param ?>/<?= $item[0]['namaItem'] ?>/<?= $item[0]['foto1'] ?>" class="detail-img" data-image="<?= base_url(); ?>assets/images/<?= $param ?>/<?= $item[0]['namaItem'] ?>/<?= $item[0]['foto1'] ?>"> -->
+									<div class="single_product_image_background d-none d-sm-block" style="background-image:url(<?= base_url(); ?>assets/images/<?= $param ?>/<?= $item[0]['namaItem'] ?>/<?= $item[0]['foto1'] ?>)"></div>
+								<?php else : ?>
+									<div class="single_product_image_background d-none d-sm-block" style="background-image:url(<?= base_url(); ?>assets/images/<?= $param ?>/<?= $item[0]['nopol'] ?>/<?= $item[0]['fotodepan'] ?>)"></div>
+								<?php endif; ?>
 
 
 								<div id="carouselExampleIndicators" class="carousel slide d-sm" data-ride="carousel">
@@ -306,31 +306,31 @@ defined('BASEPATH') or exit('No direct script access allowed');
 									</ol>
 									<div class="carousel-inner">
 										<div class="carousel-item active">
-										<?php if ($param == 'Aksesoris'): ?>
-											<!-- <img src="<?= base_url(); ?>assets/images/<?= $param ?>/<?= $item[0]['namaItem'] ?>/<?= $item[0]['foto1'] ?>" class="detail-img" data-image="<?= base_url(); ?>assets/images/<?= $param ?>/<?= $item[0]['namaItem'] ?>/<?= $item[0]['foto1'] ?>"> -->
-											<!-- <div class="single_product_image_background d-none d-sm-block" style="background-image:url(<?= base_url(); ?>assets/images/<?= $param ?>/<?= $item[0]['namaItem'] ?>/<?= $item[0]['foto1'] ?>)"></div> -->
-											<img class="d-block w-100" src="<?= base_url(); ?>assets/images/<?= $param ?>/<?= $item[0]['namaItem'] ?>/<?= $item[0]['foto2'] ?>" alt="First slide">
-											<?php else: ?>
+											<?php if ($param == 'Aksesoris') : ?>
+												<!-- <img src="<?= base_url(); ?>assets/images/<?= $param ?>/<?= $item[0]['namaItem'] ?>/<?= $item[0]['foto1'] ?>" class="detail-img" data-image="<?= base_url(); ?>assets/images/<?= $param ?>/<?= $item[0]['namaItem'] ?>/<?= $item[0]['foto1'] ?>"> -->
+												<!-- <div class="single_product_image_background d-none d-sm-block" style="background-image:url(<?= base_url(); ?>assets/images/<?= $param ?>/<?= $item[0]['namaItem'] ?>/<?= $item[0]['foto1'] ?>)"></div> -->
+												<img class="d-block w-100" src="<?= base_url(); ?>assets/images/<?= $param ?>/<?= $item[0]['namaItem'] ?>/<?= $item[0]['foto2'] ?>" alt="First slide">
+											<?php else : ?>
 												<img class="d-block w-100" src="<?= base_url(); ?>assets/images/<?= $param ?>/<?= $item[0]['nopol'] ?>/<?= $item[0]['fotobelakang'] ?>" alt="First slide">
-										<?php endif; ?>
-										</div>
-										<div class="carousel-item">
-										<?php if ($param == 'Aksesoris'): ?>
-											<img class="d-block w-100" src="<?= base_url(); ?>assets/images/<?= $param ?>/<?= $item[0]['namaItem'] ?>/<?= $item[0]['foto3'] ?>" alt="First slide">
-											<?php else: ?>
-												<img class="d-block w-100" src="<?= base_url(); ?>assets/images/<?= $param ?>/<?= $item[0]['nopol'] ?>/<?= $item[0]['fotodepan'] ?>" alt="Second slide">
-										<?php endif; ?>
-										</div>
-										<div class="carousel-item">
-										<?php if (isset($item[0]['fotokiri'])): ?>
-											<img class="d-block w-100" src="<?= base_url(); ?>assets/images/<?= $param ?>/<?= $item[0]['nopol'] ?>/<?= $item[0]['fotokiri'] ?>" alt="Third slide">
 											<?php endif; ?>
 										</div>
-										
 										<div class="carousel-item">
-											<?php if (isset($item[0]['fotokanan'])): ?>
+											<?php if ($param == 'Aksesoris') : ?>
+												<img class="d-block w-100" src="<?= base_url(); ?>assets/images/<?= $param ?>/<?= $item[0]['namaItem'] ?>/<?= $item[0]['foto3'] ?>" alt="First slide">
+											<?php else : ?>
+												<img class="d-block w-100" src="<?= base_url(); ?>assets/images/<?= $param ?>/<?= $item[0]['nopol'] ?>/<?= $item[0]['fotodepan'] ?>" alt="Second slide">
+											<?php endif; ?>
+										</div>
+										<div class="carousel-item">
+											<?php if (isset($item[0]['fotokiri'])) : ?>
+												<img class="d-block w-100" src="<?= base_url(); ?>assets/images/<?= $param ?>/<?= $item[0]['nopol'] ?>/<?= $item[0]['fotokiri'] ?>" alt="Third slide">
+											<?php endif; ?>
+										</div>
+
+										<div class="carousel-item">
+											<?php if (isset($item[0]['fotokanan'])) : ?>
 												<img class="d-block w-100" src="<?= base_url(); ?>assets/images/<?= $param ?>/<?= $item[0]['nopol'] ?>/<?= $item[0]['fotokanan'] ?>" alt="Third slide">
-												<?php endif; ?>
+											<?php endif; ?>
 										</div>
 									</div>
 									<a class="carousel-control-prev" href="#carouselExampleIndicators" role="button" data-slide="prev">
@@ -378,35 +378,35 @@ defined('BASEPATH') or exit('No direct script access allowed');
 							<div class="row mt-3">
 								<div class="col-sm-12">
 									<table class="table table-sm">
-			
-										<?php if (isset($item[0]['jenis'])): ?>
-												<tr>
-													<td width="30%">Jenis</td>
-													<td width="2">:</td>
-													<td><?= $item[0]['jenis'] ?></td>
-												</tr>
-    										<?php endif; ?>
+
+										<?php if (isset($item[0]['jenis'])) : ?>
+											<tr>
+												<td width="30%">Jenis</td>
+												<td width="2">:</td>
+												<td><?= $item[0]['jenis'] ?></td>
+											</tr>
+										<?php endif; ?>
 										<tr>
 											<td>Merk</td>
 											<td>:</td>
 											<td><?= $item[0]['merk'] ?></td>
 										</tr>
-										<?php if (isset($item[0]['model'])): ?>
-										<tr>
-											<td>Model</td>
-											<td>:</td>
-											<td><?= $item[0]['model'] ?></td>
-										</tr>
+										<?php if (isset($item[0]['model'])) : ?>
+											<tr>
+												<td>Model</td>
+												<td>:</td>
+												<td><?= $item[0]['model'] ?></td>
+											</tr>
 										<?php endif; ?>
-										<?php if (isset($item[0]['volume_mesin'])): ?>	
+										<?php if (isset($item[0]['volume_mesin'])) : ?>
 											<tr>
 												<td>Volume Mesin</td>
 												<td>:</td>
 												<td><?= $item[0]['volume_mesin'] ?></td>
 											</tr>
-											<?php endif; ?>
+										<?php endif; ?>
 
-										<?php if (isset($item[0]['transmisi'])): ?>
+										<?php if (isset($item[0]['transmisi'])) : ?>
 											<tr>
 												<td width="30%">transmisi</td>
 												<td width="2">:</td>
@@ -418,64 +418,64 @@ defined('BASEPATH') or exit('No direct script access allowed');
 											<td>:</td>
 											<td><?= $item[0]['bahanbakar'] ?></td>
 										</tr> -->
-										<?php if (isset($item[0]['bahanbakar'])): ?>
+										<?php if (isset($item[0]['bahanbakar'])) : ?>
 											<tr>
 												<td width="30%">Bahan Bakar</td>
 												<td width="2">:</td>
 												<td><?= $item[0]['bahanbakar'] ?></td>
 											</tr>
-											<?php endif; ?>
-											<?php if (isset($item[0]['warna'])): ?>
-												<tr>
-													<td>Warna</td>
-													<td>:</td>
-													<td><?= $item[0]['warna'] ?></td>
-												</tr>
-												<?php endif; ?>
-												<?php if (isset($item[0]['tahun'])): ?>
-													
-													<tr>
-														<td>Tahun</td>
-														<td>:</td>
-														<td><?= $item[0]['tahun'] ?></td>
-													</tr>
-													<?php endif; ?>
-													
-													<?php if (isset($item[0]['kilometer'])): ?>
-														<tr>
-															<td>KM</td>
-															<td>:</td>
-															<td><?= $item[0]['kilometer'] ?></td>
-														</tr>
-														<?php endif; ?>
+										<?php endif; ?>
+										<?php if (isset($item[0]['warna'])) : ?>
+											<tr>
+												<td>Warna</td>
+												<td>:</td>
+												<td><?= $item[0]['warna'] ?></td>
+											</tr>
+										<?php endif; ?>
+										<?php if (isset($item[0]['tahun'])) : ?>
 
-														<?php if (isset($item[0]['deskripsi'])): ?>
-														<tr>
-															<td>deskripsi</td>
-															<td>:</td>
-															<td><?= $item[0]['deskripsi'] ?></td>
-														</tr>
-														<?php endif; ?>
+											<tr>
+												<td>Tahun</td>
+												<td>:</td>
+												<td><?= $item[0]['tahun'] ?></td>
+											</tr>
+										<?php endif; ?>
 
-														<?php if (isset($item[0]['keterangan'])): ?>
-														<tr>
-															<td>keterangan</td>
-															<td>:</td>
-															<td><?= $item[0]['keterangan'] ?></td>
-														</tr>
-														<?php endif; ?>
+										<?php if (isset($item[0]['kilometer'])) : ?>
+											<tr>
+												<td>KM</td>
+												<td>:</td>
+												<td><?= $item[0]['kilometer'] ?></td>
+											</tr>
+										<?php endif; ?>
+
+										<?php if (isset($item[0]['deskripsi'])) : ?>
+											<tr>
+												<td>deskripsi</td>
+												<td>:</td>
+												<td><?= $item[0]['deskripsi'] ?></td>
+											</tr>
+										<?php endif; ?>
+
+										<?php if (isset($item[0]['keterangan'])) : ?>
+											<tr>
+												<td>keterangan</td>
+												<td>:</td>
+												<td><?= $item[0]['keterangan'] ?></td>
+											</tr>
+										<?php endif; ?>
 									</table>
 								</div>
 
 								<div class="col-sm-12">
 
 									<!-- Button trigger modal -->
-									<?php if ($param == 'Mobil'): ?>
-									<button type="button" class="btn btn-outline-dark btn-sm" data-toggle="modal" data-target="#exampleModal">
-										Selengkapnya
-									</button>
+									<?php if ($param == 'Mobil') : ?>
+										<button type="button" class="btn btn-outline-dark btn-sm" data-toggle="modal" data-target="#exampleModal">
+											Selengkapnya
+										</button>
 									<?php endif; ?>
-									
+
 
 									<a href="" class="btn btn-sm btn-warning ml-2">Pesan di sini</a>
 
@@ -637,92 +637,92 @@ defined('BASEPATH') or exit('No direct script access allowed');
 		<!--  reviews test -->
 
 		<div id="rivie" class="tab_container">
-							<div class="row">
+			<div class="row">
 
-								<!-- User Reviews -->
+				<!-- User Reviews -->
 
-								<div class="col-lg-6 reviews_col">
-									<div class="tab_title reviews_title">
-										<h4>Reviews (2)</h4>
-									</div>
+				<div class="col-lg-6 reviews_col">
+					<div class="tab_title reviews_title">
+						<h4>Reviews (2)</h4>
+					</div>
 
-									<!-- User Review -->
+					<!-- User Review -->
 
-									<div class="user_review_container d-flex flex-column flex-sm-row">
-										<div class="user">
-											<div class="user_pic"></div>
-											<div class="user_rating">
-												<ul class="star_rating">
-													<li><i class="fa fa-star" aria-hidden="true"></i></li>
-													<li><i class="fa fa-star" aria-hidden="true"></i></li>
-													<li><i class="fa fa-star" aria-hidden="true"></i></li>
-													<li><i class="fa fa-star" aria-hidden="true"></i></li>
-													<li><i class="fa fa-star-o" aria-hidden="true"></i></li>
-												</ul>
-											</div>
-										</div>
-										<div class="review">
-											<div class="review_date">27 Aug 2016</div>
-											<div class="user_name">Brandon William</div>
-											<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
-										</div>
-									</div>
-
-									<!-- User Review -->
-
-									<div class="user_review_container d-flex flex-column flex-sm-row">
-										<div class="user">
-											<div class="user_pic"></div>
-											<div class="user_rating">
-												<ul class="star_rating">
-													<li><i class="fa fa-star" aria-hidden="true"></i></li>
-													<li><i class="fa fa-star" aria-hidden="true"></i></li>
-													<li><i class="fa fa-star" aria-hidden="true"></i></li>
-													<li><i class="fa fa-star" aria-hidden="true"></i></li>
-													<li><i class="fa fa-star-o" aria-hidden="true"></i></li>
-												</ul>
-											</div>
-										</div>
-										<div class="review">
-											<div class="review_date">27 Aug 2016</div>
-											<div class="user_name">Brandon William</div>
-											<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
-										</div>
-									</div>
-								</div>
-
-								<!-- Add Review -->
-
-								<div class="col-lg-6 add_review_col">
-
-									<div class="add_review">
-										<form id="review_form" action="post">
-											<div>
-												<h1>Add Review</h1>
-												<input id="review_name" class="form_input input_name" type="text" name="name" placeholder="Name*" required="required" data-error="Name is required.">
-												<input id="review_email" class="form_input input_email" type="email" name="email" placeholder="Email*" required="required" data-error="Valid email is required.">
-											</div>
-											<div>
-												<h1>Your Rating:</h1>
-												<ul class="user_star_rating">
-													<li><i class="fa fa-star" aria-hidden="true"></i></li>
-													<li><i class="fa fa-star" aria-hidden="true"></i></li>
-													<li><i class="fa fa-star" aria-hidden="true"></i></li>
-													<li><i class="fa fa-star" aria-hidden="true"></i></li>
-													<li><i class="fa fa-star-o" aria-hidden="true"></i></li>
-												</ul>
-												<textarea id="review_message" class="input_review" name="message" placeholder="Your Review" rows="4" required data-error="Please, leave us a review."></textarea>
-											</div>
-											<div class="text-left text-sm-right">
-												<button id="review_submit" type="submit" class="red_button review_submit_btn trans_300" value="Submit">submit</button>
-											</div>
-										</form>
-									</div>
-
-								</div>
-
+					<div class="user_review_container d-flex flex-column flex-sm-row">
+						<div class="user">
+							<div class="user_pic"></div>
+							<div class="user_rating">
+								<ul class="star_rating">
+									<li><i class="fa fa-star" aria-hidden="true"></i></li>
+									<li><i class="fa fa-star" aria-hidden="true"></i></li>
+									<li><i class="fa fa-star" aria-hidden="true"></i></li>
+									<li><i class="fa fa-star" aria-hidden="true"></i></li>
+									<li><i class="fa fa-star-o" aria-hidden="true"></i></li>
+								</ul>
 							</div>
 						</div>
+						<div class="review">
+							<div class="review_date">27 Aug 2016</div>
+							<div class="user_name">Brandon William</div>
+							<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
+						</div>
+					</div>
+
+					<!-- User Review -->
+
+					<div class="user_review_container d-flex flex-column flex-sm-row">
+						<div class="user">
+							<div class="user_pic"></div>
+							<div class="user_rating">
+								<ul class="star_rating">
+									<li><i class="fa fa-star" aria-hidden="true"></i></li>
+									<li><i class="fa fa-star" aria-hidden="true"></i></li>
+									<li><i class="fa fa-star" aria-hidden="true"></i></li>
+									<li><i class="fa fa-star" aria-hidden="true"></i></li>
+									<li><i class="fa fa-star-o" aria-hidden="true"></i></li>
+								</ul>
+							</div>
+						</div>
+						<div class="review">
+							<div class="review_date">27 Aug 2016</div>
+							<div class="user_name">Brandon William</div>
+							<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
+						</div>
+					</div>
+				</div>
+
+				<!-- Add Review -->
+
+				<div class="col-lg-6 add_review_col">
+
+					<div class="add_review">
+						<form id="review_form" action="post">
+							<div>
+								<h1>Add Review</h1>
+								<input id="review_name" class="form_input input_name" type="text" name="name" placeholder="Name*" required="required" data-error="Name is required.">
+								<input id="review_email" class="form_input input_email" type="email" name="email" placeholder="Email*" required="required" data-error="Valid email is required.">
+							</div>
+							<div>
+								<h1>Your Rating:</h1>
+								<ul class="user_star_rating">
+									<li><i class="fa fa-star" aria-hidden="true"></i></li>
+									<li><i class="fa fa-star" aria-hidden="true"></i></li>
+									<li><i class="fa fa-star" aria-hidden="true"></i></li>
+									<li><i class="fa fa-star" aria-hidden="true"></i></li>
+									<li><i class="fa fa-star-o" aria-hidden="true"></i></li>
+								</ul>
+								<textarea id="review_message" class="input_review" name="message" placeholder="Your Review" rows="4" required data-error="Please, leave us a review."></textarea>
+							</div>
+							<div class="text-left text-sm-right">
+								<button id="review_submit" type="submit" class="red_button review_submit_btn trans_300" value="Submit">submit</button>
+							</div>
+						</form>
+					</div>
+
+				</div>
+
+			</div>
+		</div>
 
 
 		<!-- end reviews test -->
