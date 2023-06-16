@@ -55,7 +55,7 @@ class Welcome extends CI_Controller {
 	
 		// pengecekan jika website di bukan dari HP atau PC
 		if($this->agent->is_mobile()){
-			echo 'ok';
+			$this->load->view('mobile/detail', $data);
 
 		}else{
 			$this->load->view('detail', $data);
