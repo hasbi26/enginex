@@ -20,7 +20,12 @@ class Welcome extends CI_Controller {
 
 	public function index()
 	{
-		$this->load->view('luar');
+		if($this->agent->is_mobile()){
+			$this->load->view('mobile/luar');
+		}else{
+			$this->load->view('luar');
+		}
+		
 	}
 
 	public function detailProduct ($url=null)
