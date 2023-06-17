@@ -75,14 +75,25 @@ $query_builder = TRUE;
 
 $db['default'] = array(
 	'dsn'	=> '',
-	'hostname' => 'localhost:3307',
+
+	'hostname' => 'localhost',
+	//local
 	'username' => 'root',
-	'password' => '0ng15n4D3',
+	'password' => 'R1d3L1n3',
 	'database' => 'enginex',
+
+	//online
+	// 'username' => 'rideline',
+	// 'password' => 'TTz63e2f6c',
+	// 'database' => 'rideline_enginex',
+
+
+
 	'dbdriver' => 'mysqli',
 	'dbprefix' => '',
 	'pconnect' => FALSE,
-	'db_debug' => (ENVIRONMENT !== 'production'),
+	// 'db_debug' => (ENVIRONMENT !== 'production'),
+	'db_debug' => FALSE,
 	'cache_on' => FALSE,
 	'cachedir' => '',
 	'char_set' => 'utf8',

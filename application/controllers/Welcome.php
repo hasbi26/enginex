@@ -7,12 +7,12 @@ class Welcome extends CI_Controller {
 		parent::__construct();
 
 		// Load Model
-		$this->load->model('Mobil_model');
-		
+		// $this->load->model('Mobil_model');
+
 		// load Library user Agent
 		$this->load->library('user_agent');
-		$this->load->model('Motor_model');
-		$this->load->model('Aksesoris_model');
+		// $this->load->model('Motor_model');
+		// $this->load->model('Aksesoris_model');
 
 		// Load base_url
 	   //  $this->load->helper('url');
