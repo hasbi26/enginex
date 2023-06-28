@@ -62,5 +62,30 @@ class Motor_model extends CI_Model {
       }
       
  
+      function getSearch($search){
+          $response = array();
+
+          // Select record
+          $this->db->select('*');
+          $this->db->like('merk', $search); // Mencari berdasarkan kolom 'merk'
+          $this->db->or_like('namaItem', $search); // Mencari berdasarkan kolom 'namaItem'
+          $this->db->or_like('tahun', $search); // Mencari berdasarkan kolom 'tahun'
+          $records = $this->db->get('t_motor');
+          $response = $records->result_array();
+          return $response;
+     }
+
+
+     function GetSort($kat, $sort){
+          $response = array();
+
+          // Select record
+          $this->db->select('*');
+          $this->db->order_by($kat, $sort); // Menggunakan nilai $asc untuk menentukan arah pengurutan
+          $records = $this->db->get('t_motor');
+          $response = $records->result_array();
+          
+          return $response;
+     }
 
 }

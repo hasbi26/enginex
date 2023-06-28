@@ -55,6 +55,8 @@ class Mobil_model extends CI_Model {
      }
 
 
+
+
      public function get_foto_by_id($id)
      {
          $query = $this->db->get_where('t_mobil', array('id' => $id));
@@ -67,6 +69,32 @@ class Mobil_model extends CI_Model {
           $this->db->delete('t_mobil');
           return $this->db->affected_rows() > 0;
       }
+
+
+      function getSearch($search){
+          $response = array();
+
+          // Select record
+          $this->db->select('*');
+          $this->db->like('merk', $search); // Mencari berdasarkan kolom 'merk'
+          $this->db->or_like('namaItem', $search); // Mencari berdasarkan kolom 'namaItem'
+          $this->db->or_like('tahun', $search); // Mencari berdasarkan kolom 'tahun'
+          $records = $this->db->get('t_mobil');
+          $response = $records->result_array();
+          return $response;
+     }
+      
+     function GetSort($kat, $sort){
+          $response = array();
+
+          // Select record
+          $this->db->select('*');
+          $this->db->order_by($kat, $sort); // Menggunakan nilai $asc untuk menentukan arah pengurutan
+          $records = $this->db->get('t_mobil');
+          $response = $records->result_array();
+          
+          return $response;
+     }
       
  
 

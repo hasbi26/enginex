@@ -5,14 +5,41 @@
 	<!-- Required meta tags -->
 	<meta charset="utf-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<link rel="icon" type="image/x-icon" href="<?=base_url()?>assets\logo\favicon.ico">
 
 	<!-- Bootstrap CSS -->
 	<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
 	<link rel="stylesheet" href="<?= base_url(); ?>/assets/css/mobile/style.css">
 	<link rel="preload" href="NATS.woff2" as="font" type="<?= base_url(); ?>/font/woff2" crossorigin>
 
-	<title>Colo Shop Categories</title>
+
+	<style>
+
+#searchInputContainer {
+  display: flex;
+  align-items: center;
+}
+.logo {
+            text-align: center; /* Mengatur posisi tengah */
+            /* text-align: right; // Mengatur posisi kanan */
+            /* text-align: left; // Mengatur posisi kiri */
+			margin-top : 30px;
+			margin-bottom : 30px;
+        }
+
+        .logo img {
+            max-width: 25%; /* Mengatur lebar maksimum gambar */
+            height: auto; /* Mengatur ketinggian gambar sesuai proporsi */
+        }
+
+	</style>
+
+
+	<title>Rideline</title>
+
 </head>
+
+
 
 <body>
 	<!-- Optional JavaScript; choose one of the two! -->
@@ -28,11 +55,15 @@
 
 
 	<section class="container">
-		<h1 id="header_line">rideline</h1>
+		<!-- <h1 id="header_line">rideline</h1> -->
+		<div class="logo">
+			
+        <img src="<?= base_url()?>assets\logo\rideline.png" alt="Logo Rideline">
+    </div>
 
 		<ul class="kategori_menu">
 			<li class="active">
-				<a href="#" onclick="tampil_data_barang('Mobil', this)">Mobile</a>
+				<a href="#" onclick="tampil_data_barang('Mobil', this)">Mobil</a>
 			</li>
 			<li>
 				<a href="#" onclick="tampil_data_barang('Motor', this)">Motor</a>
@@ -42,28 +73,25 @@
 			</li>
 		</ul>
 
-		<div class="row mt-4 mb-4">
-			<div class="col-6">
+		 <div class="row mt-4 mb-4">
+			<div class="col-2">
 				<a href="" class="ms-2">
 					<box-icon name='slider' class="ikon" onclick="openFilter(event)"></box-icon>
 				</a>
 			</div>
-			<div class="col-6">
-				<a href="" class="float-end">
-					<box-icon class="ikon me-2" name='search-alt'></box-icon>
-				</a>
-			</div>
-		</div>
+<div class="col-9">
+<div id="searchInputContainer" style="">
+    <input type="text" id="searchInput" class="form-control" placeholder="Cari...">
+	<box-icon class="ikon me-2" name='search-alt' style="margin-left: 9px;"></box-icon>
+  </div>
+</div>
 
+	
+
+		</div> 
 		<div class="row product-grid"></div>
 	</section>
 
-	<footer>
-		<a href=""><img src="<?= base_url(); ?>/assets/logo/home.png"></a>
-		<a href=""><img src="<?= base_url(); ?>/assets/logo/whatsapp.png"></a>
-		<a href=""><img src="<?= base_url(); ?>/assets/logo/facebook-logo.png"></a>
-		<a href=""><img src="<?= base_url(); ?>/assets/logo/youtube.png"></a>
-	</footer>
 
 	<!-- Modal -->
 	<div class="modal fade" id="filterModal" tabindex="-1" aria-labelledby="filterModalLabel" aria-hidden="true">
@@ -74,13 +102,6 @@
 					<button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
 				</div>
 				<div class="modal-body">
-					<select name="sorting_options" id="sorting_options" class="form-select">
-						<option value="">Default Sorting</option>
-						<option value="price">Price</option>
-						<option value="Tahun_Asc">Tahun Terendah</option>
-						<option value="Tahun_Desc">Tahun Tertinggi</option>
-					</select>
-
 				</div>
 			</div>
 		</div>
@@ -88,84 +109,124 @@
 
 	<script src="<?= base_url(); ?>assets/js/jquery-3.6.3.min.js"></script>
 	<script src="https://unpkg.com/boxicons@2.1.4/dist/boxicons.js"></script>
-
-
 	<script>
-		tampil_data_barang("Mobil", $("#default")[0]);
-
-		function tampil_data_barang(param, elem, kategori, sort) {
-			var urlAll = 'GetItem'
-
-			if (typeof elem !== 'undefined') {
-				$('.kategori_menu li').removeClass('active');
-			}
-
-			$(elem).parent().addClass('active');
-			$(elem).prepend('<span><i class="fa fa-angle-double-right" aria-hidden="true"></i></span>');
-
-			$.ajax({
-				type: 'POST',
-				url: urlAll,
-				async: false,
-				data: {
-					postdata: param
-				},
-				dataType: 'json',
-				success: function(data) {
-					var products = data.Item;
-
-					// Sorting berdasarkan harga (dari terendah ke tertinggi)
-					products.sort(function(a, b) {
-						return a.harga - b.harga;
-					});
-
-					var productItem = "";
-					$('.product-grid').empty(); // menghapus data sebelumnya
-					$.each(products, function(index, product) {
-						
-						var productBubble = "";
-						if (product.isNew) {
-							productBubble = '<div class="product_bubble product_bubble_left product_bubble_green d-flex flex-column align-items-center"><span>new</span></div>';
-						}
-
-						productItem += `<div class="col-6 mb-3">
-											<div class="card">
-												<div class="card-body">
-													<img src="<?= base_url(); ?>assets/images/${param}/${param == 'Aksesoris' ? product.namaItem : product.nopol}/${param == 'Aksesoris' ? product.foto1 : product.fotodepan}" class="img-fluid">
-													<h5 class="card-title mt-2">${product.merk + ' ' + product.namaItem + ' ' + product.namaItem + (product.tahun ? ' ' + product.tahun : '')}</h5>
-													<div class="price">Rp. ${formatRupiah(product.harga)}</div>
-													<a href="welcome/detailProduct/${product.id}/${param}" class="btn btn-warning btn-xs btn-block text-white">Detail</a>
-												</div>
-											</div>
-										</div>`;
-
-						// var productItem = '<div class="product-item women" data-name="' + product.merk + ' ' + product.namaItem + '" data-price="' + product.harga + '">' +
-						// 	'<div class="product product_filter">' +
-						// 	'<div class="product_image">' +
-						// 	'<img src="<?= base_url(); ?>assets/images/' + param + '/' + ((param == "Aksesoris") ? product.namaItem : product.nopol) + '/' + ((param == "Aksesoris") ? product.foto1 : product.fotodepan) + '" alt="' + product.namaItem + '">' +
-						// 	'</div>' +
-						// 	'<div class="favorite"></div>' +
-						// 	productBubble +
-						// 	'<div class="product_info">' +
-						// 	'<h6 class="product_name"><a href="welcome/detailProduct/' + product.id + '/' + param + '">' + product.merk + ' ' + product.namaItem + ' ' + product.namaItem + (product.tahun ? ' ' + product.tahun : '') + '</a></h6>' +
-						// 	'<div class="product_price">Rp. ' + formatRupiah(product.harga) + '</div>' +
-						// 	'</div>' +
-						// 	'</div>' +
-						// 	'<div class="red_button add_to_cart_button"><a href="#">add to cart</a></div>' +
-						// 	'</div>';
-
-						// productItems += productItem;
-					});
 
 
-					$('.product-grid').append(productItem);
 
-				},
-				error: function(error) {
-					console.log(error);
-				}
-			});
-		}
+	tampil_data_barang("Mobil", $("#default")[0]);
+
+	var searchInput = document.getElementById('searchInput');
+    searchInput.addEventListener('keyup', filterData);
+
+    function filterData() {
+      var searchValue = searchInput.value.trim();
+	  var param = document.querySelector('.kategori_menu li.active').innerText;; // Ganti dengan nilai param yang sesuai
+	  $('.product-grid').empty();
+
+	  $.ajax({
+        type: 'POST',
+        url: 'GetItem/WithSearch',
+        async: false,
+        data: {
+          param: param,
+		  search : searchValue
+        },
+        dataType: 'json',
+        success: function(data) {
+
+			// console.log("Data", data)
+			var products = data;  
+			  var productItem = "";
+			  $.each(products, function(index, product) {
+				              var productBubble = "";
+            if (product.isNew) {
+              productBubble = '<div class="product_bubble product_bubble_left product_bubble_green d-flex flex-column align-items-center"><span>new</span></div>';
+            }
+
+            productItem += `<div class="col-6 mb-3">
+                              <div class="card">
+                                <div class="card-body">
+                                  <img src="<?= base_url(); ?>assets/images/${param}/${param == 'Aksesoris' ? product.namaItem : product.nopol}/${param == 'Aksesoris' ? product.foto1 : product.fotodepan}" class="img-fluid">
+                                  <h5 class="card-title mt-2">${product.merk + ' ' + product.namaItem + ' ' + product.namaItem + (product.tahun ? ' ' + product.tahun : '')}</h5>
+                                  <div class="price">Rp. ${formatRupiah(product.harga)}</div>
+                                  <a href="welcome/detailProduct/${product.id}/${param}" class="btn btn-warning btn-xs btn-block text-white">Detail</a>
+                                </div>
+                              </div>
+                            </div>`;
+          });
+
+          $('.product-grid').append(productItem);
+
+        },
+        error: function(error) {
+          console.log(error);
+        }
+      });
+
+
+
+
+
+    }
+
+  function tampil_data_barang(param, elem, kategori, sort, searchValue) {
+	
+      var urlAll = 'GetItem';
+
+      if (typeof elem !== 'undefined') {
+        $('.kategori_menu li').removeClass('active');
+      }
+
+      $(elem).parent().addClass('active');
+      $(elem).prepend('<span><i class="fa fa-angle-double-right" aria-hidden="true"></i></span>');
+
+      $.ajax({
+        type: 'POST',
+        url: urlAll,
+        async: false,
+        data: {
+          postdata: param
+        },
+        dataType: 'json',
+        success: function(data) {
+          var products = data.Item;
+
+          // Sorting berdasarkan harga (dari terendah ke tertinggi)
+          products.sort(function(a, b) {
+            return a.harga - b.harga;
+          });
+
+          var productItem = "";
+          $('.product-grid').empty(); // menghapus data sebelumnya
+          $.each(products, function(index, product) {
+
+            var productBubble = "";
+            if (product.isNew) {
+              productBubble = '<div class="product_bubble product_bubble_left product_bubble_green d-flex flex-column align-items-center"><span>new</span></div>';
+            }
+
+            productItem += `<div class="col-6 mb-3">
+                              <div class="card">
+                                <div class="card-body">
+                                  <img src="<?= base_url(); ?>assets/images/${param}/${param == 'Aksesoris' ? product.namaItem : product.nopol}/${param == 'Aksesoris' ? product.foto1 : product.fotodepan}" class="img-fluid">
+                                  <h5 class="card-title mt-2">${product.merk + ' ' + product.namaItem + ' ' + product.namaItem + (product.tahun ? ' ' + product.tahun : '')}</h5>
+                                  <div class="price">Rp. ${formatRupiah(product.harga)}</div>
+                                  <a href="welcome/detailProduct/${product.id}/${param}" class="btn btn-warning btn-xs btn-block text-white">Detail</a>
+                                </div>
+                              </div>
+                            </div>`;
+          });
+
+          $('.product-grid').append(productItem);
+
+        },
+        error: function(error) {
+          console.log(error);
+        }
+      });
+    }
+
+
 
 		function formatRupiah(angka) {
 			var reverse = angka.toString().split('').reverse().join('');
@@ -177,6 +238,35 @@
 		function openFilter(e) {
 			e.preventDefault();
 			$('#filterModal').modal('show');
+
+			var paramIs = document.querySelector('.kategori_menu li.active').innerText;; // Ganti dengan nilai param yang sesuai
+
+
+			var selectOptions = '';
+  if (paramIs === 'Mobil' || paramIs === 'Motor') {
+    selectOptions = `
+      <select name="sorting_options" id="sorting_options" class="form-select">
+        <option value="">Default Sorting</option>
+        <option value="harga_Asc">Harga Terendah</option>
+        <option value="harga_Desc">Harga Tertinggi</option>
+		<option value="tahun_Asc">Tahun Terendah</option>
+        <option value="tahun_Desc">Tahun Tertinggi</option>
+      </select>
+      <button onclick="handleSelectOption()">Set</button>
+    `;
+  } else {
+    selectOptions = `
+      <select name="sorting_options" id="sorting_options" class="form-select">
+        <option value="">Default Sorting</option>
+        <option value="harga_Asc">Harga Terendah</option>
+        <option value="harga_Desc">Harga Tertinggi</option>
+      </select>
+      <button onclick="handleSelectOption()">Set</button>
+    `;
+  }
+
+  document.querySelector('.modal-body').innerHTML = selectOptions;
+
 		}
 
 		$('#sorting_options').change(function() {
@@ -198,6 +288,7 @@
 					kat: kat,
 					sort: sort
 				},
+
 				success: function(response) {
 					// Lakukan tindakan setelah menerima respons dari controller
 				},
@@ -206,6 +297,56 @@
 				}
 			});
 		});
+
+
+
+		function handleSelectOption() {
+  var selectedOption = document.getElementById('sorting_options').value;
+  var paramIs = document.querySelector('.kategori_menu li.active').innerText;; // Ganti dengan nilai param yang sesuai
+
+  $.ajax({
+				url: 'GetItem/Sorting',
+				type: 'POST',
+				data: {
+					param: paramIs,
+					sort: selectedOption
+				},
+				dataType: 'json',
+				success: function(data) {
+					// Lakukan tindakan setelah menerima respons dari controller
+					$('.product-grid').empty();
+					var products = data;
+			  var productItem = "";
+			  $.each(products, function(index, product) {
+				              var productBubble = "";
+            if (product.isNew) {
+              productBubble = '<div class="product_bubble product_bubble_left product_bubble_green d-flex flex-column align-items-center"><span>new</span></div>';
+            }
+
+            productItem += `<div class="col-6 mb-3">
+                              <div class="card">
+                                <div class="card-body">
+                                  <img src="<?= base_url(); ?>assets/images/${paramIs}/${paramIs == 'Aksesoris' ? product.namaItem : product.nopol}/${paramIs == 'Aksesoris' ? product.foto1 : product.fotodepan}" class="img-fluid">
+                                  <h5 class="card-title mt-2">${product.merk + ' ' + product.namaItem + ' ' + product.namaItem + (product.tahun ? ' ' + product.tahun : '')}</h5>
+                                  <div class="price">Rp. ${formatRupiah(product.harga)}</div>
+                                  <a href="welcome/detailProduct/${product.id}/${paramIs}" class="btn btn-warning btn-xs btn-block text-white">Detail</a>
+                                </div>
+                              </div>
+                            </div>`;
+          });
+
+          $('.product-grid').append(productItem);
+
+				},
+				error: function(xhr, status, error) {
+					// Tangani error jika terjadi
+				}
+			});
+
+  $('#filterModal').modal('hide'); // Menutup modal
+
+}
+
 	</script>
 
 

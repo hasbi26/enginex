@@ -142,13 +142,14 @@ defined('BASEPATH') or exit('No direct script access allowed');
 				<div class="container">
 					<div class="row">
 						<div class="col-lg-12 text-right">
-							<div class="logo_container">
-								<a href="#">colo<span>shop</span></a>
+						<div class="logo_container">
+								<!-- <a href="#">colo<span>shop</span></a> -->
+								<img src="<?= base_url(); ?>assets/logo/rideline.png" alt="..." height="36">
 							</div>
 							<nav class="navbar">
 								<ul class="">
 									<li class="">
-										<a href="" class="btn btn-sm btn-danger"><i class="fa fa-phone" aria-hidden="true"></i> Contact Us</a>
+										<a href="https://wa.me/6281324962776?text=Halo%20saya%20ingin%20bertanya%20tentang%20rideline" class="btn btn-sm btn-warning"><i class="fa fa-phone" aria-hidden="true"></i> Contact Us</a>
 									</li>
 								</ul>
 							</nav>
@@ -477,7 +478,7 @@ defined('BASEPATH') or exit('No direct script access allowed');
 									<?php endif; ?>
 
 
-									<a href="" class="btn btn-sm btn-warning ml-2">Pesan di sini</a>
+									<a href="https://wa.me/6281324962776?text=Halo%20saya%20ingin%20bertanya%20tentang%20<?=$item[0]['merk'] . ' ' . $item[0]['namaItem']  ;?>" class="btn btn-sm btn-warning ml-2">Pesan di sini</a>
 
 									<!-- Modal -->
 									<div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">

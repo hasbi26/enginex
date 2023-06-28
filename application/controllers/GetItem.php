@@ -77,8 +77,47 @@ public function MobilSorting(){
     $data = $this->Mobil_model->GetItemSorting($kat, $sort);
    
     echo json_encode($data);
+}
+
+public function WithSearch(){
+
+    $param = $this->input->post('param'); // Ambil nilai tahun dari request
+    $search = $this->input->post('search'); // Ambil nilai asc dari request
+
+    if($param == 'Mobil') {
+        $Item = $this->Mobil_model->getSearch($search);
+    } elseif($param == 'Motor') {
+        $Item = $this->Motor_model->getSearch($search);
+    } elseif($param == 'Aksesoris') {
+        $Item = $this->Aksesoris_model->getSearch($search);
+    } else {
+        $Item = array(); // default empty array
+    }
+    echo json_encode($Item);
+}
 
 
+public function Sorting(){
+
+    $param = $this->input->post('param'); // Ambil nilai tahun dari request
+    $sort_type = $this->input->post('sort'); // Ambil nilai asc dari request
+
+    
+    $kat = explode("_",$sort_type)[0];
+    $sort = explode("_",$sort_type)[1];
+
+
+    if($param == 'Mobil') {
+        $Item = $this->Mobil_model->GetSort($kat, $sort);
+    } elseif($param == 'Motor') {
+        $Item = $this->Motor_model->GetSort($kat, $sort);
+    } elseif($param == 'Aksesoris' || $param == "Accessories") {
+        $Item = $this->Aksesoris_model->GetSort($kat, $sort);
+    } else {
+        $Item = array(); // default empty array
+    }
+
+    echo json_encode($Item);
 }
 
 

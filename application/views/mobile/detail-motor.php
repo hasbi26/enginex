@@ -11,7 +11,7 @@
 	<link rel="stylesheet" href="<?= base_url(); ?>/assets/css/mobile/style.css">
 	<link rel="preload" href="NATS.woff2" as="font" type="<?= base_url(); ?>/font/woff2" crossorigin>
 
-	<title>Single Product</title>
+	<title>Single Product Motor</title>
 </head>
 
 <body>
@@ -32,18 +32,16 @@
 	<div class="imageBox">
 		<div class="swiper mySwiper">
 			<div class="swiper-wrapper">
-				<div class="swiper-slide"><img class="d-block w-100 image-modal-trigger" src="<?= base_url(); ?>assets/images/<?= $param ?>/<?= $item[0]['nopol'] ?>/<?= $item[0]['fotodepan'] ?>" alt="First slide"></div>
-				<div class="swiper-slide"><img class="d-block w-100 image-modal-trigger" src="<?= base_url(); ?>assets/images/<?= $param ?>/<?= $item[0]['nopol'] ?>/<?= $item[0]['fotokanan'] ?>" alt="First slide"></div>
-				<div class="swiper-slide"><img class="d-block w-100 image-modal-trigger" src="<?= base_url(); ?>assets/images/<?= $param ?>/<?= $item[0]['nopol'] ?>/<?= $item[0]['fotokiri'] ?>" alt="First slide"></div>
-				<div class="swiper-slide"><img class="d-block w-100 image-modal-trigger" src="<?= base_url(); ?>assets/images/<?= $param ?>/<?= $item[0]['nopol'] ?>/<?= $item[0]['fotobelakang'] ?>" alt="First slide"></div>
-				<div class="swiper-slide"><img class="d-block w-100 image-modal-trigger" src="<?= base_url(); ?>assets/images/<?= $param ?>/<?= $item[0]['nopol'] ?>/<?= $item[0]['fotodalam1'] ?>" alt="First slide"></div>
-				<div class="swiper-slide"><img class="d-block w-100 image-modal-trigger" src="<?= base_url(); ?>assets/images/<?= $param ?>/<?= $item[0]['nopol'] ?>/<?= $item[0]['fotodalam2'] ?>" alt="First slide"></div>
-				<div class="swiper-slide"><img class="d-block w-100 image-modal-trigger" src="<?= base_url(); ?>assets/images/<?= $param ?>/<?= $item[0]['nopol'] ?>/<?= $item[0]['fotomesin1'] ?>" alt="First slide"></div>
-				<div class="swiper-slide"><img class="d-block w-100 image-modal-trigger" src="<?= base_url(); ?>assets/images/<?= $param ?>/<?= $item[0]['nopol'] ?>/<?= $item[0]['fotomesin2'] ?>" alt="First slide"></div>
+				<div class="swiper-slide"><img class="d-block w-100  image-modal-trigger" src="<?= base_url(); ?>assets/images/<?= $param ?>/<?= $item[0]['nopol'] ?>/<?= $item[0]['fotodepan'] ?>" alt="First slide"></div>
+				<div class="swiper-slide"><img class="d-block w-100  image-modal-trigger" src="<?= base_url(); ?>assets/images/<?= $param ?>/<?= $item[0]['nopol'] ?>/<?= $item[0]['fotokanan'] ?>" alt="First slide"></div>
+				<div class="swiper-slide"><img class="d-block w-100  image-modal-trigger" src="<?= base_url(); ?>assets/images/<?= $param ?>/<?= $item[0]['nopol'] ?>/<?= $item[0]['fotokiri'] ?>" alt="First slide"></div>
+				<div class="swiper-slide"><img class="d-block w-100  image-modal-trigger" src="<?= base_url(); ?>assets/images/<?= $param ?>/<?= $item[0]['nopol'] ?>/<?= $item[0]['fotobelakang'] ?>" alt="First slide"></div>
+				<div class="swiper-slide"><img class="d-block w-100  image-modal-trigger" src="<?= base_url(); ?>assets/images/<?= $param ?>/<?= $item[0]['nopol'] ?>/<?= $item[0]['fotolain'] ?>" alt="First slide"></div>
 			</div>
 			<div class="swiper-pagination"></div>
 		</div>
 	</div>
+
 
 
 	<div class="modal fade" id="imageModal" tabindex="-1" aria-labelledby="imageModalLabel" aria-hidden="true">
@@ -62,6 +60,7 @@
   </div>
 </div>
 
+
 	<section class="container detailBox">
 	<!-- <h1 class="detailHeading">Mazda Vantrend 1995</h1> -->
 		<h1 class="detailHeading"><?= $item[0]['merk'].' '.$item[0]['namaItem'].' '.$item[0]['tahun']  ?></h1>
@@ -70,42 +69,27 @@
 
 		<div class="row ">
 			<div class="col-6">
-				<table class="table table-sm">
-					<tr>
-						<td width="30%">Jenis</td>
-						<td width="2">:</td>
-						<td><?= $item[0]['jenis'] ?></td>
-					</tr>
+				<table class="table table-sm">					
 					<tr>
 						<td>Model</td>
 						<td>:</td>
 						<td><?= $item[0]['model'] ?></td>
 					</tr>
-					<tr>
+					<!-- <tr>
 						<td>Transmisi</td>
 						<td>:</td>
 						<td><?= $item[0]['transmisi'] ?></td>
-					</tr>
+					</tr> -->
 					<tr>
 						<td>Warna</td>
 						<td>:</td>
 						<td><?= $item[0]['warna'] ?></td>
 					</tr>
-					<!-- <tr>
-						<td>Power Steering</td>
-						<td>:</td>
-						<td><?= $item[0]['powersteering'] ?></td>
-					</tr>
 					<tr>
-						<td>Power Window</td>
+						<td>KM</td>
 						<td>:</td>
-						<td><?= $item[0]['powerwindow'] ?></td>
+						<td><?= $item[0]['kilometer'] ?></td>
 					</tr>
-					<tr>
-						<td>Kondisi</td>
-						<td>:</td>
-						<td><?= $item[0]['kondisi'] ?></td>
-					</tr> -->
 				</table>
 			</div>
 			<div class="col-6">
@@ -121,40 +105,11 @@
 						<td><?= $item[0]['volume_mesin'] ?></td>
 					</tr>
 					<tr>
-						<td>Bahan Bakar</td>
-						<td>:</td>
-						<td><?= $item[0]['bahanbakar'] ?></td>
-					</tr>
-					<tr>
 						<td>Tahun</td>
 						<td>:</td>
 						<td><?= $item[0]['tahun'] ?></td>
 					</tr>
-					<tr>
-						<td>KM</td>
-						<td>:</td>
-						<td><?= $item[0]['kilometer'] ?></td>
-					</tr>
-					<!-- <tr>
-						<td width="30%">AC</td>
-						<td width="2">:</td>
-						<td><?= $item[0]['ac'] ?></td>
-					</tr>
-					<tr>
-						<td>Central Lock</td>
-						<td>:</td>
-						<td><?= $item[0]['centrallock'] ?></td>
-					</tr>
-					<tr>
-						<td>Alarm</td>
-						<td>:</td>
-						<td><?= $item[0]['alarm'] ?></td>
-					</tr>
-					<tr> -->
-						<!-- <td>Deskripsi</td>
-						<td>:</td>
-						<td><?= $item[0]['deskripsi'] ?></td>
-					</tr> -->
+
 				</table>
 			</div>
 		</div>
@@ -173,6 +128,7 @@
 			<div class="col-6">
 				<!-- <a href="#" class="btn btn-xs btn-block">Pesan</a> -->
 				<a href="https://wa.me/+6281324962776?text=Saya%20ingin%20pesan%20:%0A<?= $item[0]['merk'] ?>%20<?= $item[0]['namaItem'] ?>%20<?= $item[0]['tahun'] ?>%0AHarga:%20<?= $item[0]['harga'] ?>" class="btn btn-xs btn-block">Pesan</a>
+
 			</div>
 		</div>
 	</section>
@@ -248,7 +204,6 @@
 		});
 
 
-		
 		// Dapatkan semua elemen gambar yang menjadi trigger modal
 var modalTriggers = document.querySelectorAll('.image-modal-trigger');
 
@@ -275,6 +230,8 @@ closeButton.addEventListener('click', function() {
   $('#imageModal').modal('hide');
 });
 
+
+	
 
 	</script>
 

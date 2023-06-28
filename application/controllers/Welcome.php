@@ -22,6 +22,8 @@ class Welcome extends CI_Controller {
 	{
 		if($this->agent->is_mobile()){
 			$this->load->view('mobile/luar');
+			$this->load->view('footer');
+
 		}else{
 			$this->load->view('luar');
 		}
@@ -50,14 +52,28 @@ class Welcome extends CI_Controller {
 		}
 	
 
-
-
-	
 		// pengecekan jika website di bukan dari HP atau PC
 		if($this->agent->is_mobile()){
-			$this->load->view('mobile/detail', $data);
 
+			// var_dump($data. base_url());
+			// die;
+
+
+			if($param == 'Mobil') {
+			$this->load->view('mobile/detail', $data);
+			$this->load->view('footer');
+			} elseif($param == 'Motor') {
+				$this->load->view('mobile/detail-motor', $data);
+				$this->load->view('footer');
+			} elseif($param == 'Aksesoris') {
+				$this->load->view('mobile/detail-aksesoris', $data);
+				$this->load->view('footer');
+
+			} else {
+				$data['item'] = array(); // default empty array
+			}
 		}else{
+
 			$this->load->view('detail', $data);
 		}
 		
